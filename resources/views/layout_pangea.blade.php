@@ -24,6 +24,7 @@
             @yield('content')
             Contenido de ejemplo
             Contenido extra de ejemplo
+            Linea 4 para probar git
         </div>
         <!-- Footer information -->
         <footer>

@@ -22,6 +22,8 @@
         <!-- This section is where we will show the content -->
         <div class="content">
             @yield('content')
+            Contenido de ejemplo
+            Contenido extra de ejemplo
         </div>
         <!-- Footer information -->
         <footer>

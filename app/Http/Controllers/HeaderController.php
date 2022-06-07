@@ -10,6 +10,10 @@ class HeaderController extends Controller
     {   
         //Change layout_pangea for index file 
         //
-        return view('layout_pangea');
+        return view('index');
+    }
+    public function contact()
+    {
+        return view('contacto');
     }
 }

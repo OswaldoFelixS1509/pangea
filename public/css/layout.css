@@ -1,4 +1,4 @@
-section {
+.header1 {
     width: 100%;
     height: 100px;
     border: 1px solid #2d2d2d;
@@ -6,12 +6,34 @@ section {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #545352;
-    background-image: url("../images/texture.png");
+    background: url("../images/texture.png"), #545352;
     background-blend-mode: multiply;
 
   }
+.header2{
+  width: 100%;
+  height: 75px;
+  background-color: #D8923B;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #2d2d2d;
+}
 
+.header2 p
+{
+  margin-left: 20px;
+  width: 150px;
+  font-size: 24px;
+  text-decoration: underline;
+  padding: 10px;
+}
+
+.header2 a{
+  text-decoration: none;
+  color: inherit;
+}
 
 body{
     background-repeat: no-repeat;
@@ -45,8 +67,49 @@ body{
     width: 100px;
 }
 .content{
-    height: 350px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    align-items: center;
 }
+
+.aboutUs{
+  height: 607px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.workFlow{
+  background-color: #C4A467;
+  width: 100%;
+  height: 600px;
+  margin-top: 50px;
+}
+
+.service{
+  background-color: #DDCFB1;
+  height: 400px;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.contactForm{
+  display: flex;
+  width: 70%;
+  height: 700px;
+  background: rgba(255, 255, 255, .6);
+}
+
+.contactForm p{
+  font-size: 24px;
+  opacity: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 footer{
     background-color: #545352;
     background-image: url("../images/texture.png");

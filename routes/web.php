@@ -16,3 +16,5 @@ use App\http\Controllers\HeaderController;
 //Using controller as a function and adds a nick to the route in order to make easier the route management
 Route::get('/', [HeaderController::class, 'index'])->name('header.index');
 
+Route::get('/contacto', [HeaderController::class, 'contact'])->name('header.contact');
+

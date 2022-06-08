@@ -8,6 +8,7 @@
         <!-- Yield is a mark for content sections -->
         <title>@yield('title')</title>
         <link rel="stylesheet" type="text/css" href="{{url('css/layout.css')}}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
 
     <body>

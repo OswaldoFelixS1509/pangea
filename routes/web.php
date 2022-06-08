@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HeaderController;
-
+use App\http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +17,6 @@ use App\http\Controllers\HeaderController;
 Route::get('/', [HeaderController::class, 'index'])->name('header.index');
 
 Route::get('/contacto', [HeaderController::class, 'contact'])->name('header.contact');
+//This route is used to post the contact message in the database 
+Route::post('/contacto', [ContactController::class, 'store'])->name('header.contact');
 

@@ -44,10 +44,10 @@
                         </div>
                         <br>
                 @enderror
-                <label class="text-message" for="message">Mensaje </label><br>
+                <label class="text-message" for="mensaje">Mensaje </label><br>
                 <div class="formData" id="formMessage">   
                     <i class="material-icons md-48">chat</i>
-                    <textarea class="txtInputArea" type="text" id="message" name="message" rows="15"></textarea>
+                    <textarea class="txtInputArea" type="text" id="mensaje" name="mensaje" rows="15"></textarea>
                 </div>
                 <br>
                 <div class="buttonHolder">

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contacto;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class ContactoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -39,6 +40,14 @@ class ContactController extends Controller
             'telefono' => 'required',
             'nombre' => 'required'
         ]);
+        $contacto = new Contacto();
+        $contacto->correo = strip_tags($request->input('email'));
+        $contacto->telefono = strip_tags($request->input('telefono'));
+        $contacto->nombre = strip_tags($request->input('nombre'));
+        $contacto->mensaje = strip_tags($request->input('mensaje'));
+        $contacto->leido = false;
+
+        $contacto->save();
 
         return redirect()->route('header.contact')->with('alert', 'Datos enviados con exito \nPronto te contactaremos!');
     }
@@ -46,10 +55,10 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Contacto $contacto)
     {
         //
     }
@@ -57,10 +66,10 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Contacto $contacto)
     {
         //
     }
@@ -69,10 +78,10 @@ class ContactController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Contacto $contacto)
     {
         //
     }
@@ -80,10 +89,10 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Contacto $contacto)
     {
         //
     }

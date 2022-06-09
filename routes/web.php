@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HeaderController;
 use App\http\Controllers\ContactoController;
+use App\http\Controllers\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,14 @@ use App\http\Controllers\ContactoController;
 Route::get('/', [HeaderController::class, 'index'])->name('header.index');
 
 Route::get('/contacto', [HeaderController::class, 'contact'])->name('header.contact');
+
 //This route is used to post the contact message in the database.
 //They have the same name but the route is selected by the method
 Route::post('/contacto', [ContactoController::class, 'store'])->name('header.contact');
+
+Route::get('/login', [HeaderController::class, 'login'])->name('header.login');
+
+Route::get('/admin/register', [RegisterController::class, 'index'])->name('register.index');
+
+Route::post('/admin/register', [RegisterController::class, 'register'])->name('register.index');
 

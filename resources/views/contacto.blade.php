@@ -13,7 +13,7 @@
                 <label class="text-email" for="email">Correo* </label><br>
                 <div class="formData" id="formEmail">   
                     <i class="material-icons md-48">email</i>
-                    <input class="txtInput" type="email" id="email" name="email" placeholder="example@mail.com">
+                    <input class="txtInput" type="email" value="{{ old('email')}}" id="email" name="email" placeholder="example@mail.com">
                 </div>
                 @error('email')
                         <div class="form-error"> 
@@ -25,7 +25,7 @@
                 <label class="text-phone" for="telefono">Número telefonico* </label><br>
                 <div class="formData" id="formPhone">   
                     <i class="material-icons md-48">call</i>
-                    <input class="txtInput" type="tel" id="telefono" name="telefono" placeholder="111 1111 1111" maxlength="12">
+                    <input class="txtInput" type="tel" id="telefono" value="{{ old('telefono')}}" name="telefono" placeholder="111 1111 1111" maxlength="12">
                 </div>
                 @error('telefono')
                         <div class="form-error"> 
@@ -36,7 +36,7 @@
                 <label class="text-name" for="nombre">Nombre completo* </label><br>
                 <div class="formData" id="formName">   
                     <i class="material-icons md-48">person</i>
-                    <input class="txtInput" type="text" id="nombre" name="nombre">
+                    <input class="txtInput" type="text" id="nombre" value="{{old('nombre')}}" name="nombre">
                 </div>
                 @error('nombre')
                         <div class="form-error"> 
@@ -47,7 +47,7 @@
                 <label class="text-message" for="mensaje">Mensaje </label><br>
                 <div class="formData" id="formMessage">   
                     <i class="material-icons md-48">chat</i>
-                    <textarea class="txtInputArea" type="text" id="mensaje" name="mensaje" rows="15"></textarea>
+                    <textarea class="txtInputArea" type="text" id="mensaje" value="{{old('mensaje')}}" name="mensaje" rows="15"></textarea>
                 </div>
                 <br>
                 <div class="buttonHolder">

@@ -16,4 +16,9 @@ class HeaderController extends Controller
     {
         return view('contacto');
     }
+
+    public function login()
+    {
+        return view('login');
+    }
 }

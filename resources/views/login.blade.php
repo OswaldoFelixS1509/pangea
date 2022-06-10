@@ -12,12 +12,12 @@
 <div class="loginForm">
     <p>Inicio de sesión </p>
     <div class="txtCorreo" id="txtCorreo">
-        <form method="POST">
+        <form method="POST" action="{{route('login.login')}}">
             @csrf
             <label class="text-user" for="usuario"> Usuario* </label> <br>
             <div class="formData" id="usuario">
                     <i class="material-icons md-48">person</i>
-                    <input class="txtInput" type="email" id="usuario" name="usuario">
+                    <input class="txtInput" type="text" id="usuario" name="usuario">
             </div>
             @error('usuario')
                         <div class="form-error"> 
@@ -28,7 +28,7 @@
             <label class="text-password" for="password"> Contraseña* </label> <br>
             <div class="formData" id="usuario">
                     <i class="material-icons md-48">lock</i>
-                    <input class="txtInput" type="email" id="contraseña" name="contraseña">
+                    <input class="txtInput" type="password" id="contraseña" name="contraseña">
             </div>
             @error('contraseña')
                         <div class="form-error"> 
@@ -44,3 +44,9 @@
 </div>
 
 @endsection
+
+@if(session()->has('alert'))
+    <script>
+        alert("  {{ session()->get('alert') }} ")
+    </script>
+@endif

@@ -20,7 +20,7 @@
                     <div class="left" id="left"></div>
                     <div class="logo" id="logo"> <a href="{{ route('header.index')}}"> <img src="{{url('images/logo_pangea.png')}}"  width="123px" height="84px"> </a>  </div>
                     <!-- Add route to UserController.login. -->
-                    <div class="login" id="login"> <a href="{{ route('header.login')}}"> <p>Inicia sesión </p>  </a></div>
+                    <div class="login" id="login"> <a href="{{ route('login.login')}}"> <p>Inicia sesión </p>  </a></div>
                 </div>
                 @if(Request::url() == "http://localhost:8000" || Request::url() == "http://localhost:8000/contacto")
                     <div class="header2" id="header2">

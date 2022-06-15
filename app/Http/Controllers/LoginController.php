@@ -15,6 +15,15 @@ class LoginController extends Controller
         return view('login');
     }
 
+    public function logout()
+    {
+        if(session()->has('LoggedUser'))
+        {
+            session()->pull('LoggedUser');
+            return redirect()->route('login.index');
+        }
+    }
+
     public function login(Request $request)
     {
         $request->validate([

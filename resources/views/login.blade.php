@@ -16,6 +16,11 @@
     {{Session::get('message')}}
     </div>
 @endif
+
+@if(Session::get('fail'))
+    <script> alert('{{Session::get("fail")}}'); </script>
+@endif
+
     <p>Inicio de sesión </p>
     <div class="txtCorreo" id="txtCorreo">
         <form method="POST" action="{{route('login.auth')}}">
@@ -62,9 +67,3 @@
 </div>
 
 @endsection
-
-@if(session()->has('alert'))
-    <script>
-        alert("  {{ session()->get('alert') }} ")
-    </script>
-@endif

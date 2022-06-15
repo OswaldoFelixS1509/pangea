@@ -19,8 +19,16 @@
                 <div class="header1" id="header1">
                     <div class="left" id="left"></div>
                     <div class="logo" id="logo"> <a href="{{ route('header.index')}}"> <img src="{{url('images/logo_pangea.png')}}"  width="123px" height="84px"> </a>  </div>
-                    <!-- Add route to UserController.login. -->
-                    <div class="login" id="login"> <a href="{{ route('login.login')}}"> <p>Inicia sesión </p>  </a></div>
+                    @if(Session::get('LoggedUser'))
+                        @if(Session::get('LoggedUser') == "user")
+                        <div class="login" id="login"> <a href="{{ route('user.index')}}"> <p>Mi perfil </p>  </a></div>
+                        @else
+                        <div class="login" id="login"> <a href="{{ route('admin.index')}}"> <p>Mi perfil </p>  </a></div>
+                        @endif
+                    @else
+                    <div class="login" id="login"> <a href="{{ route('login.index')}}"> <p>Inicia sesión </p>  </a></div>
+                    @endif
+                    
                 </div>
                 @if(Request::url() == "http://localhost:8000" || Request::url() == "http://localhost:8000/contacto")
                     <div class="header2" id="header2">
@@ -53,6 +61,8 @@
                     texto 2
                 </div>
         </footer>
+
+        
     </body>
 
 </html>

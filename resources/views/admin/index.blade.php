@@ -1,2 +1,7 @@
 @extends('layout_pangea')
-Pagina Admin
+
+@section('content')
+
+<a href="{{ route('login.logout')}}"> <button> Cerrar sesión </button> </a>
+
+@endsection

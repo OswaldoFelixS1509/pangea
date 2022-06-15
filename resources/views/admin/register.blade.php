@@ -1,9 +1,17 @@
 @extends('layout_pangea')
 
 @section('content')
+@if(Session::get('success'))
+    <div class="alert">
+      {{Session::get('success')}}
+    </div>
+    <br>
+    @endif
 
 <form action="{{route('register.index')}}" method="POST">
     @csrf
+   
+    
     <label>nombre </label> <br>
     <input type="text" name="nombre" value="{{old('nombre')}}"> <br>
     @error('nombre')
@@ -20,6 +28,13 @@
         </div>
       <br>
     @enderror
+
+    <label> Tipo de usuario</label> <br>
+    <select name="userType">
+      <option value="user" selected>Usuario</option>
+      <option value="admin">Administrador</option>
+    </select>
+    <br>
     <label>email </label> <br>
     <input type="email" value="{{old('email')}}" name="email"> <br>
     @error('email')

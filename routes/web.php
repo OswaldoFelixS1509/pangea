@@ -5,6 +5,8 @@ use App\http\Controllers\HeaderController;
 use App\http\Controllers\ContactoController;
 use App\http\Controllers\RegisterController;
 use App\http\Controllers\LoginController;
+use App\http\Controllers\AdminController;
+use App\http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,12 +25,19 @@ Route::get('/contacto', [HeaderController::class, 'contact'])->name('header.cont
 //This route is used to post the contact message in the database.
 //They have the same name but the route is selected by the method
 Route::post('/contacto', [ContactoController::class, 'store'])->name('header.contact');
-
+//Login routes
 Route::get('/login', [LoginController::class, 'show'])->name('login.login');
 
-Route::post('/login', [LoginController::class, 'login'])->name('login.login');
-
+Route::post('/login', [LoginController::class, 'login'])->name('login.auth');
+//Admin routes
 Route::get('/admin/register', [RegisterController::class, 'index'])->name('register.index');
 
 Route::post('/admin/register', [RegisterController::class, 'register'])->name('register.index');
+
+Route::get('/admin/index', [AdminController::class, 'index'])->name('admin.index');
+
+//User routes
+
+Route::get('/user/index', [UserController::class, 'index'])->name('user.index');
+
 

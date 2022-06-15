@@ -59,6 +59,7 @@ class RegisterController extends Controller
             'nombre' => 'required',
             'usuario' => 'required|unique:users,username',
             'email' => 'required|email|unique:users,email',
+            'userType' => 'required',
             'contraseña' => 'required',
             'confirmacion_contraseña' => 'required|same:contraseña'
         ]);
@@ -67,13 +68,14 @@ class RegisterController extends Controller
         $usuario->name = strip_tags($request->input('nombre'));
         $usuario->username = strip_tags($request->input('usuario'));
         $usuario->email = strip_tags($request->input('email'));
-        $usuario->password = strip_tags($request->input('contrasela'));
+        $usuario->password = strip_tags($request->input('contraseña'));
+        $usuario->user_type = strip_tags($request->input('userType'));
 
         $usuario->save();
 
         
-        return redirect()->route('register.index'); 
-
+        return back()->with('success', 'Usuario registrado con exito'); 
+        //redirect()->route('register.index')
 
     }
     /**

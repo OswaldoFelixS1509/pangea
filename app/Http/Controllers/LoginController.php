@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -13,39 +15,44 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function login(LoginRequest $request)
+    public function login(Request $request)
     {
-        //$credentials = $request->getCredentials();
-
         $request->validate([
             'usuario' => 'required',
             'contraseña' => 'required'
 
         ]);
-        $credentials = request()->only('email', 'password');
-
-        $credentials = request()->only('email', 'contraseña');
-
-        if(Auth::attemp($credentials))
+        //Revisa si el usuario esta correcto
+        $userInfo = User::where('username', '=',strip_tags($request->usuario) )->first();
+        
+        if(!$userInfo)
         {
-            return 'Sesión iniciada';   
+            return back()->with('invalidUser', 'Usuario incorrecto');
         }
-        return 'login fallido';
-
-        // if(!Auth::validate($credentials))
-        // {
-        //     return redirect()->to('/login')->withErrors('auth.failed');
-        // }
-        // $user = Auth::getProvider()->retrieveByCredentials($credentials);
-        // Auth::login($user);
-        // return $this->authenticated($request, $user);
+        else{
+            //Revisar contraseña
+            if(Hash::check(strip_tags($request->contraseña), $userInfo->password))
+            {
+                $request->session()->put('LoggedUser', $userInfo->id);
+                if($userInfo->user_type == "admin")
+                {
+                    return redirect()->route('admin.index');
+                }
+                else{
+                    return redirect()->route('user.index');
+                }
+                
+            }
+            else{
+                return back()->with('invalidPassword', 'Contraseña incorrecta');
+            }
+        }
+        
 
 
     }
 
-    public function authenticated($request, $user){
-        return redirect()->route('header.index')->with('alert', 'Inicio de sesión exitoso');
-    }
 
+   
 
 }

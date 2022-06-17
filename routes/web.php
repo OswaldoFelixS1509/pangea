@@ -19,7 +19,7 @@ Route::post('/contacto', [ContactoController::class, 'store'])->name('header.con
 Route::get('/login', [LoginController::class, 'show'])->name('login.index');
 Route::post('/login', [LoginController::class, 'login'])->name('login.auth'); 
 Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
-      
+
 
 //All routes that requires a user to be logged needs to be here in order to protect access
 Route::group(['middleware'=>['AuthCheck']], function(){
@@ -27,6 +27,8 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     //Admin routes
     Route::get('/admin/register', [RegisterController::class, 'index'])->name('register.index');
     Route::post('/admin/register', [RegisterController::class, 'register'])->name('register.index');
+      
+    
     Route::get('/admin/index', [AdminController::class, 'index'])->name('admin.index');
     //User Routes
     Route::get('/user/index', [UserController::class, 'index'])->name('user.index');

@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+margin: 0;
+padding: 0;
+}
+
+blanco {
+    padding: 14px 20px;
+
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+aside {
+    flex:30px;
+    background-color: beige;
+    padding: 160px;
+}
+
+section {
+    flex:55%;
+    background-color: khaki;
+    padding: 160px;
+}
+section2 {
+    flex:100%;
+    padding: 20px;
+}

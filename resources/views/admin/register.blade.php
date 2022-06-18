@@ -1,4 +1,4 @@
-@extends('layout_pangea')
+@extends('admin/layout_admin')
 
 @section('content')
 @if(Session::get('success'))

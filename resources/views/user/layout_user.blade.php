@@ -20,17 +20,24 @@
             <div class="header1" id="header1">
                 <div class="left" id="left"></div>
                 <div class="logo" id="logo"> <a href="{{ route('header.index')}}"><img src="{{url('images/logo_pangea.png')}}"  width="123px" height="84px"> </a></div>
+                <div class="left" id="left"></div>
             </div>
 </header>
-
-<blanco></blanco>
-
 <div class="row">
             <aside>
+
+            
             <ul>
+            <div class="profilePicture">
+                <img src="/images/users/user_picture.png" alt="">
+            </div>
                 <li>
-                    <a href="#">mi itinerario</a>
+                    
+                    <div class="menuButton">
+                    <a href="#">Itinerario</a>
+                    </div>
                 </li>
+
                 <li>
                     <a href="#">Calendario</a>
                 </li>
@@ -41,16 +48,20 @@
                     <a href="#">Info covid</a>
                 </li>
                 <li>
-                    <a href="#">Mi perfil</a>
+                    <a href="#">Perfil</a>
+                </li>
+                <li>
+                    <a class="cerrar" href="{{ route('login.logout')}}">Cerrar sesión </a>
                 </li>
             </ul>
             </aside>
             <section>
-             </h1> bro</h1>
+            @yield('content')
             </section>
             <section2></section2>        
 </div>
-    @yield('content')
+
+    
 </body>
 
 <footer>

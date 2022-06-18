@@ -29,9 +29,10 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::post('/admin/register', [RegisterController::class, 'register'])->name('register.index');
       
     
-    Route::get('/admin/index', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/control', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/perfil', [AdminController::class, 'profile'])->name('admin.profile');
     //User Routes
-    Route::get('/user/index', [UserController::class, 'index'])->name('user.index');
+    Route::get('/user/itinerario', [UserController::class, 'index'])->name('user.index');
     
 
 

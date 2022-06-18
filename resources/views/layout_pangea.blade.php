@@ -20,7 +20,7 @@
                     <div class="left" id="left"></div>
                     <div class="logo" id="logo"> <a href="{{ route('header.index')}}"> <img src="{{url('images/logo_pangea.png')}}"  width="123px" height="84px"> </a>  </div>
                     @if(Session::get('LoggedUser'))
-                        @if(Session::get('LoggedUser') == "user")
+                        @if(Session::get('Permission') == "user")
                         <div class="login" id="login"> <a href="{{ route('user.index')}}"> <p>Mi perfil </p>  </a></div>
                         @else
                         <div class="login" id="login"> <a href="{{ route('admin.index')}}"> <p>Mi perfil </p>  </a></div>

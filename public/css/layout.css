@@ -16,18 +16,18 @@
   background-color: #D8923B;
   display: flex;
   flex-direction:row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border: 1px solid #2d2d2d;
 }
 
 .header2 p
 {
-  margin-left: 20px;
-  width: 150px;
-  font-size: 24px;
+  padding-left: 5rem;
+  font-size: 1.2em;
+  width: fit-content;
+  padding-right: 5rem;
   text-decoration: underline;
-  padding: 10px;
 }
 
 a{

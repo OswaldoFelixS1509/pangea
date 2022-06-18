@@ -20,6 +20,7 @@ class LoginController extends Controller
         if(session()->has('LoggedUser'))
         {
             session()->pull('LoggedUser');
+            session()->pull('Permission');
             return redirect()->route('login.index');
         }
     }
@@ -43,6 +44,7 @@ class LoginController extends Controller
             if(Hash::check(strip_tags($request->contraseña), $userInfo->password))
             {
                 $request->session()->put('LoggedUser', $userInfo->id);
+                $request->session()->put('Permission', $userInfo->user_type);
                 if($userInfo->user_type == "admin")
                 {
                     return redirect()->route('admin.index');

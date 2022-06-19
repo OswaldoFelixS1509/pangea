@@ -13,7 +13,7 @@
    
     
     <label>nombre </label> <br>
-    <input type="text" name="nombre" value="{{old('nombre')}}"> <br>
+    <input class="txtInput" type="text" name="nombre" value="{{old('nombre')}}"> <br>
     @error('nombre')
         <div class="form-error"> 
             {{$message}}
@@ -21,7 +21,7 @@
       <br>
     @enderror
     <label>Username </label> <br>
-    <input type="text" value="{{old('usuario')}}" name="usuario"><br>
+    <input class="txtInput" type="text" value="{{old('usuario')}}" name="usuario"><br>
     @error('usuario')
         <div class="form-error"> 
             {{$message}}
@@ -36,7 +36,7 @@
     </select>
     <br>
     <label>email </label> <br>
-    <input type="email" value="{{old('email')}}" name="email"> <br>
+    <input class="txtInput" type="email" value="{{old('email')}}" name="email"> <br>
     @error('email')
         <div class="form-error"> 
             {{$message}}
@@ -44,7 +44,7 @@
       <br>
     @enderror
     <label> pass</label> <br>
-    <input type="password" name="contraseña"> <br>
+    <input class="txtInput" type="password" name="contraseña"> <br>
     @error('contraseña')
         <div class="form-error"> 
             {{$message}}
@@ -52,7 +52,7 @@
       <br>
     @enderror
     <label> confirm pass</label> <br>
-    <input type="password" name="confirmacion_contraseña"> <br>
+    <input class="txtInput" type="password" name="confirmacion_contraseña"> <br>
     @error('confirmacion_contraseña')
         <div class="form-error"> 
             {{$message}}

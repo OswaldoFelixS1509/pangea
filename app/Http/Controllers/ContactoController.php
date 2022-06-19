@@ -60,7 +60,7 @@ class ContactoController extends Controller
      */
     public function show(Contacto $contacto)
     {
-        //
+        return view('admin.contacto');
     }
 
     /**

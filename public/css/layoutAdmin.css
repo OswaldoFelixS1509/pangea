@@ -18,28 +18,7 @@ aside img{
     width:11.9rem;
     
 }
-.profilePicture{
-    width: fit-content;
-    border: 1px black solid;
-    background-color: rgba(255, 255, 255, 0.7);
-}
-aside ul{
-    width: fit-content;
-    
-}
 
-aside li{
-    width: 12rem;
-    height: 30px;
-    font-size: 1.5em;
-    justify-content: center;
-    border: 1px black solid;
-    display:flex;
-    justify-content: flex-start;
-    padding-left: 0.5rem;
-    
-    
-}
 
 .cerrar{
     color: red;
@@ -55,6 +34,9 @@ aside {
     
 }
 
+input{
+    border: 1px black solid;
+}
 
 section {
     flex:55%;

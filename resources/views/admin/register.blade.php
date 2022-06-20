@@ -1,16 +1,18 @@
 @extends('admin/layout_admin')
 
 @section('content')
-@if(Session::get('success'))
+
+
+<form action="{{route('register.index')}}" method="POST">
+    @csrf
+    <p class="title">Registrar nuevo usuario</p>
+    <br>
+    @if(Session::get('success'))
     <div class="alert">
       {{Session::get('success')}}
     </div>
     <br>
     @endif
-
-<form action="{{route('register.index')}}" method="POST">
-    @csrf
-   
     
     <label>nombre </label> <br>
     <input class="txtInput" type="text" name="nombre" value="{{old('nombre')}}"> <br>
@@ -59,7 +61,7 @@
         </div>
       <br>
     @enderror
-    <button>Registrar </button>
+    <button class="btnSubmit">Registrar </button>
 </form>
 
 @endsection

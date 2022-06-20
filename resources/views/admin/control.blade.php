@@ -6,7 +6,7 @@
         <table>
             <caption>Control de usuarios</caption>
         @foreach($users as $user)
-         
+            @if(Session::get('LoggedUser') != $user['id'])
             <tr>
                 <td>
                     <div class="datosUsuario">
@@ -18,23 +18,19 @@
                 <p class="email">{{$user['email']}}</p>  
                 </td>
                 <td>
-                    @if(Session::get('LoggedUser') == $user['id'])
-                        
-                    @else
                     <form> @csrf
                     <input type="submit" class="delete" value="Eliminar">
                         </form>
-                    @endif
                
                 </td>
                 <td>
-                <input type="button" value="Documentación">
+                 <input type="button" value="Documentación">
                 <td>
-                <input type="button" value="Editar datos">
+                <a href="{{ route('admin.edit', $user)}}"><input type="button" value="Editar datos"></a>
                 </td>
                 </td>
             </tr>
-        
+            @endif
         @endforeach
         </table>
         <br>

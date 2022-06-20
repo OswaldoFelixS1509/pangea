@@ -5,6 +5,7 @@
 
 header {
     padding-bottom: 30px;
+    width: 100%;
 
 }
 .row {
@@ -42,23 +43,23 @@ aside li{
 }
 
 .cerrar{
-    color: red;
+    color: rgb(186, 53, 53);
 }
 
 
 aside {
-    background-color: rgba(255, 255, 255, 0.7);
-    flex: 30px;
+    flex: 10px;
     width: 100%;
     height: fit-content;
-    padding: 30px;
+    padding: 10px;
     
 }
-
-
+aside ul li{
+background-color: #DDCFB18b;
+}
 section {
     flex:55%;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.684);
     padding: 20px;
 }
 

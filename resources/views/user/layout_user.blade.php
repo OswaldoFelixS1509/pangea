@@ -32,7 +32,6 @@
                 <img src="/images/users/user_picture.png" alt="">
             </div>
                 <li>
-                    
                     <div class="menuButton">
                     <a href="#">Itinerario</a>
                     </div>
@@ -48,7 +47,7 @@
                     <a href="#">Info covid</a>
                 </li>
                 <li>
-                    <a href="#">Perfil</a>
+                    <a hrefD="#">Perfil</a>
                 </li>
                 <li>
                     <a class="cerrar" href="{{ route('login.logout')}}">Cerrar sesión </a>

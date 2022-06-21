@@ -2,21 +2,29 @@
 .aboutUs{
     height: 607px;
     width: 100%;
+    border:3px solid rgb(255, 255, 255);
+    border-radius:22px;
     background-color: #fff;
+    box-shadow: 7px 7px 15px #8e847d;
   }
-  
   .workFlow{
     background-color: #C4A467;
     width: 100%;
+    border:3px solid #C4A467;
+    border-radius:22px;
     height: 600px;
     margin-top: 50px;
+    box-shadow: 7px 7px 15px #9b7a3d;
   }
   
   .service{
     background-color: #DDCFB1;
     height: 400px;
+    border:3px solid #DDCFB1;
+    border-radius:22px;
     width: 100%;
     margin-top: 50px;
+    box-shadow: 7px 7px 15px #c0aa7b;
   }
   
   

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Documento;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,12 @@ class AdminController extends Controller
     function edit(User $user){
    
         return view('admin.editUser', compact('user'));
+    }
+
+    function documents(User $user){
+        $documentos = Documento::where('user', $user->id)->orderBy('documentType', 'asc')->get();
+        return view('admin.documentos', compact('user'), compact('documentos'));
+        
     }
 
     function checkUpdate(User $user, Request $request )
@@ -59,7 +66,7 @@ class AdminController extends Controller
                 {     
                         if($user2->contains('email', $user->email) == FALSE)
                         {
-                            return back()->with('fail', "Este correo ya esta en uso SAQUENME DE AQUI\r\n");  
+                            return back()->with('fail', "Este correo ya esta en uso\r\n");  
                         }
                            
                 }
@@ -70,7 +77,7 @@ class AdminController extends Controller
                     if($user3->contains('username', $user->username) == FALSE)
                     {
                         
-                        return back()->with('fail', "Este nombre de usuario ya esta en uso SAQUENME DE AQUI");
+                        return back()->with('fail', "Este nombre de usuario ya esta en uso");
                     }
                     
                 }    

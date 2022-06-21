@@ -2,15 +2,20 @@
 
 @section('content')
     <div class="contieneDatos">
-    @if(count($users) > 0)
+    @if(count($users) > 1)
         <table>
             <caption>Control de usuarios</caption>
         @foreach($users as $user)
-            @if(Session::get('LoggedUser') != $user['id'])
+            @if(Session::get('LoggedUser') != $user['id'] && $user['id'] != 1)
             <tr>
                 <td>
                     <div class="datosUsuario">
-                        <img src="/images/users/{{$user['profile_picture']}}" class="imgTabla" alt="">
+                        @if($user['profile_picture'] == "user_picture.png")
+                            <img src="/images/users/{{$user['profile_picture']}}" class="imgTabla">
+                        @else
+                            <img src="{{asset('/images/users/'.$user['id'].'/'.$user['profile_picture']) }}" class="imgTabla">
+                        @endif
+                        
                         <p>{{$user['name']}}</p>
                     </div class="datosUsuario"> 
                 </td>
@@ -24,7 +29,7 @@
                
                 </td>
                 <td>
-                 <input type="button" value="Documentación">
+                 <a href="{{ route('admin.documents', $user)}}"><input type="button" value="Documentación"> </a>
                 <td>
                 <a href="{{ route('admin.edit', $user)}}"><input type="button" value="Editar datos"></a>
                 </td>

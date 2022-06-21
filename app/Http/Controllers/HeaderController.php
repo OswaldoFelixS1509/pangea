@@ -16,5 +16,4 @@ class HeaderController extends Controller
     {
         return view('contacto');
     }
-
 }

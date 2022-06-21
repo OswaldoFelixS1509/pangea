@@ -34,6 +34,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::get('/admin/contacto', [ContactoController::class, 'show'])->name('admin.contact');
     Route::get('/admin/{user}/editar', [AdminController::class, 'edit'])->name('admin.edit');
     Route::put('/admin/{user}', [AdminController::class, 'checkUpdate'])->name('admin.checkUpdate');
+    Route::get('/admin/{user}/documentos', [AdminController::class, 'documents'])->name('admin.documents');
     
     //User Routes
     Route::get('/user/itinerario', [UserController::class, 'index'])->name('user.index');

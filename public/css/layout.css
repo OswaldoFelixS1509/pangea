@@ -51,20 +51,26 @@ body{
 
 .logo
   {
-    width: 123px;
+    width: 0px;
     height: 84px;
   }
 .login
 {
     padding: 12px;
-    font-size: 28px;
+    font-size: 3em;
+    color: rgb(255, 255, 255);
+}
+
+.back{
+  padding: 12px;
+    font-size: 3em;
     color: #fff;
     text-decoration: underline;
 }
 
 .left
 {
-    width: 100px;
+    width: 1rem;
 }
 .content{
     width: 100%;

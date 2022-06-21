@@ -3,6 +3,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
     <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Yield is a mark for content sections -->
@@ -36,7 +38,7 @@
                         @if(Request::url() == "http://localhost:8000")
                             <div> <a href="#aboutUs"> <p> ¿Quienes somos? </p> </a> </div>
                             <div> <a href="#service"> <p> Servicio </p> </a></div>
-                            <div> <a href="{{ route('header.contact') }}"> <p> Contacto </p> </a></div>
+                            <div> <a href="{{ route('header.contact') }}">  <p> Contacto </p></a></div>
                         @else
                             <div> <a href="{{ route('header.index')}}#aboutUs"> <p> ¿Quienes somos? </p> </a> </div>
                             <div> <a href="{{ route('header.index')}}#service"> <p> Servicio </p> </a></div>

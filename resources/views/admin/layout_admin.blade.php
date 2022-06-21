@@ -23,7 +23,7 @@
 <body>
 <header>
             <div class="header1" id="header1">
-                <div class="left" id="left"></div>
+                <div class="back" id="back"> <a href="{{url()->previous()}}"> <p >Volver</p>  </a></div>
                 <div class="logo" id="logo"> <a href="{{ route('header.index')}}"><img src="{{url('images/logo_pangea.png')}}"  width="123px" height="84px"> </a></div>
                 <div class="left" id="left"></div>
             </div>

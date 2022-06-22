@@ -44,14 +44,11 @@ body{
     background-image: url("../images/background.jpg");
 }
 
-  div {
-    color: #000;
-    display: inline-block;
-  }
+  
 
 .logo
   {
-    width: 0px;
+    width: 123px;
     height: 84px;
   }
 .login

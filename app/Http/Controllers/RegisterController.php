@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -67,6 +68,7 @@ class RegisterController extends Controller
 
         $usuario->name = strip_tags($request->input('nombre'));
         $usuario->username = strip_tags($request->input('usuario'));
+        $usuario->slug = Str::slug(strip_tags($request->input('usuario')), '-');
         $usuario->email = strip_tags($request->input('email'));
         $usuario->password = strip_tags($request->input('contraseña'));
         $usuario->user_type = strip_tags($request->input('userType'));

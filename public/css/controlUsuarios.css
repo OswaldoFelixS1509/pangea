@@ -38,6 +38,17 @@ td
     
 }
 
+.documentList{
+    display: flex;
+    flex-direction: column;
+}
+
+.msg{
+    font-size: 1em;
+}
+
+
+
 .datosUsuario{
     
     display: flex;
@@ -67,9 +78,11 @@ table caption{
 .imgUser{
     width: 1rem;
 }
+
 .contieneDatos{
     width: 100%;
 }
+
 
 .links{
     display: flex;

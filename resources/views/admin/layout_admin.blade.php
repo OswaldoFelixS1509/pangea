@@ -9,14 +9,16 @@
         <title>@yield('title')</title>
         
         <link rel="stylesheet" type="text/css" href="{{url('css/layoutuser.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url('css/content-styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/layout.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/forms.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/aboutUs.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/controlUsuarios.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/layout_admin.css')}}">
         <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/translations/es.js"></script>
 
 </head>
 

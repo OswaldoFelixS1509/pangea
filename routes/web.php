@@ -7,6 +7,8 @@ use App\http\Controllers\RegisterController;
 use App\http\Controllers\LoginController;
 use App\http\Controllers\AdminController;
 use App\http\Controllers\UserController;
+use App\http\Controllers\DocumentController;
+
 
 //Using controller as a function and adds a nick to the route in order to make easier the route management
 Route::get('/', [HeaderController::class, 'index'])->name('header.index');
@@ -33,8 +35,10 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::get('/admin/perfil', [AdminController::class, 'profile'])->name('admin.profile');
     Route::get('/admin/contacto', [ContactoController::class, 'show'])->name('admin.contact');
     Route::get('/admin/{user}/editar', [AdminController::class, 'edit'])->name('admin.edit');
-    Route::put('/admin/{user}', [AdminController::class, 'checkUpdate'])->name('admin.checkUpdate');
-    Route::get('/admin/{user}/documentos', [AdminController::class, 'documents'])->name('admin.documents');
+    Route::put('/admin/{user}', [UserController::class, 'checkUpdate'])->name('admin.checkUpdate');
+    Route::get('/admin/{user}/documentos', [DocumentController::class, 'documents'])->name('admin.documents');
+    Route::get('/admin/{user}/nuevo-documento', [DocumentController::class, 'create'])->name('admin.createDocument');
+    Route::post('/admin/{user}/nuevo-documento', [DocumentController::class, 'store'])->name('admin.createDocument');
     
     //User Routes
     Route::get('/user/itinerario', [UserController::class, 'index'])->name('user.index');

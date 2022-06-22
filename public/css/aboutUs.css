@@ -1,6 +1,7 @@
 
 .aboutUs{
-    height: 607px;
+    height: fit-content;
+    padding-left: .6em;
     width: 100%;
     border:3px solid rgb(255, 255, 255);
     border-radius:22px;
@@ -9,17 +10,19 @@
   }
   .workFlow{
     background-color: #C4A467;
+    padding-left: 0.6em;
     width: 100%;
     border:3px solid #C4A467;
     border-radius:22px;
-    height: 600px;
+    height: fit-content;
     margin-top: 50px;
     box-shadow: 7px 7px 15px #9b7a3d;
   }
   
   .service{
     background-color: #DDCFB1;
-    height: 400px;
+    height: fit-content;
+    padding-left: .6em;
     border:3px solid #DDCFB1;
     border-radius:22px;
     width: 100%;

@@ -5,6 +5,18 @@
     @if(count($users) > 1)
         <table>
             <caption>Control de usuarios</caption>
+            <tr>
+        <td>
+            Nombre completo
+        </td>
+        <td>
+            Nombre de usuario
+        </td>
+        <td>
+            Email
+        </td>
+       
+    </tr>
         @foreach($users as $user)
             @if(Session::get('LoggedUser') != $user['id'] && $user['id'] != 1)
             <tr>
@@ -20,8 +32,12 @@
                     </div class="datosUsuario"> 
                 </td>
                 <td>
+                <p class="email">{{$user['username']}}</p>  
+                </td>
+                <td>
                 <p class="email">{{$user['email']}}</p>  
                 </td>
+                
                 <td>
                     <form> @csrf
                     <input type="submit" class="delete" value="Eliminar">

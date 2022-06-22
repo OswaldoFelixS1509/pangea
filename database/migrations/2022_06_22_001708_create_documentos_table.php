@@ -15,12 +15,17 @@ return new class extends Migration
     {
         Schema::create('documentos', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('User');
-            $table->bigInteger('Admin');
-            $table->String('nameDocument');
-            $table->String('documentType');
-            $table->String('Comments');
+            $table->unsignedBigInteger('post_id');
+
+            $table->foreign('post_id')
+                ->references('id')
+                ->on('posts')
+                ->onDelete('cascade');
+            $table->string('fileName');
+            $table->string('type');
             $table->timestamps();
+            
+            //id, idPublicación, nombreArchivo, tipoArchivo
         });
     }
 

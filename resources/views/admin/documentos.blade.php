@@ -2,35 +2,51 @@
 
 
 @section('content')
-
-<p class="title"></p>
-<table>
-    <caption>Documentación de usuario</caption>
+    <div class="documentList">
+        <p class="title">Documentación del usuario {{$user->name}}</p>
+    
+    
+<br>
+    @if(count($documentos) > 0)
+    <table>
     <tr>
         <td>
-            Nombre del archivo
+            Titulo
         </td>
         <td>
-            Tipo de archivo
+            Categoria
         </td>
         <td>
             Fecha de subida
         </td>
-        <td>
-            Autor
-        </td>
-        <td>
-            Detalles
-        </td>
+        
     </tr>
-    @if(count($documentos) > 0)
-        
-    @else
-        
-    @endif
     @foreach($documentos as $documento)
-
+    <tr>
+        <td>
+        <p class="email">{{$documento['title']}}</p>  
+        </td>
+        <td>
+        <p class="email">{{$documento['category']}}</p> 
+        </td>
+        <td>
+            <p class="email">{{$documento['created_at']}}</p> 
+        </td>
+        <td>
+            <input type="submit" class="delete" value="Eliminar">
+        </td>
+        <td><a href="{{ route('admin.edit', $user)}}"><input type="button" value="Editar comentario"></a></td>
+    </tr>
     @endforeach
-</table>
-
+    </table>
+    {{$documentos->links()}}
+    @else
+    
+        <p class="msg">El usuario {{$user->name}} aún no tiene documentos</p>
+        
+    
+    @endif
+   
+    <a href="{{ route('admin.createDocument',  $user)}}"> <button class="btnSubmit">Subir un nuevo archivo</button></a>
+    </div>
 @endsection

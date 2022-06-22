@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username')->unique();
+            $table->string('slug');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -31,6 +32,7 @@ return new class extends Migration
             array(
                 'name' => 'Admin',
                 'username' => 'Admin',
+                'slug' => 'Admin',
                 'email' => 'Admin@mail',
                 'password' => Hash::make('123'),
                 'user_type' => 'admin'

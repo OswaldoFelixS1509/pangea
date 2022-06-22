@@ -10,16 +10,19 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Illuminate\Filesystem\Filesystem;
 
 class DocumentController extends Controller
 {
     function documents(User $user){
-        $documentos = Post::where('user_id', $user->id)->orderBy('category', 'asc')->paginate();
+        //Hace una consulta para mostrar todos los archivos del usuario seleccionado
+        $documentos = Post::where('user_id', $user->id)->orderBy('category', 'asc')->paginate(10);
         return view('admin.documentos', compact('user'), compact('documentos'));
         
     }
 
     function create(User $user){
+        //Muestra el formulario para subir un nuevo documento
         return view('admin.nuevo-documento', compact('user'));
     }
 
@@ -58,7 +61,10 @@ class DocumentController extends Controller
         $fileSaver = new Documento(); 
         foreach($files as $file){
             $filename = Str::slug($file->getClientOriginalName(), '-') . '.' . $file->getClientOriginalExtension();
-            if(Storage::putFileAs('/public/files/users/'.$user->slug.'/', $file, $filename))
+
+
+
+            if(Storage::putFileAs('/public/files/users/'.$user->slug.'/'. $post->id .'/', $file, $filename))
             {
                 $fileSaver->post_id = $post->id;
                 $fileSaver->filename = $filename;
@@ -73,5 +79,20 @@ class DocumentController extends Controller
         return back()->with('success', 'Archivo guardado exitosamente!');
     }
 
+    function destroy(Request $request, User $user, $documento){
+        //documento == post_id
+        $documentos = Documento::where('post_id', $documento)->get();
+
+        //Elimina los archivos de la carpeta
+        foreach($documentos as $file){
+            unlink(public_path('storage/files/users/'. $user->slug. '/' . $file->post_id .'/' .  $file->fileName));
+            File::deleteDirectory(public_path('storage/files/users/'. $user->slug. '/' . $file->post_id ));
+        }
+
+        Post::where('id', $documento)->delete();
+        
+        return back()->with('success', 'Documento eliminado con exito!');
+       
+    }
 
 }

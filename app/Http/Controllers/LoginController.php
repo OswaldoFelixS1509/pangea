@@ -21,6 +21,7 @@ class LoginController extends Controller
         {
             session()->pull('LoggedUser');
             session()->pull('Permission');
+            session()->pull('profilePicture');
             return redirect()->route('login.index');
         }
     }
@@ -45,6 +46,8 @@ class LoginController extends Controller
             {
                 $request->session()->put('LoggedUser', $userInfo->id);
                 $request->session()->put('Permission', $userInfo->user_type);
+                $request->session()->put('ProfilePicture', $userInfo->profile_picture);
+               
                 if($userInfo->user_type == "admin")
                 {
                     return redirect()->route('admin.index');

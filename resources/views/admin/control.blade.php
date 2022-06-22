@@ -23,9 +23,9 @@
                 <td>
                     <div class="datosUsuario">
                         @if($user['profile_picture'] == "user_picture.png")
-                            <img src="/images/users/{{$user['profile_picture']}}" class="imgTabla">
+                            <img src="{{asset('storage/images/users/'.$user['profile_picture'])}}" class="imgTabla">
                         @else
-                            <img src="{{asset('/images/users/'.$user['id'].'/'.$user['profile_picture']) }}" class="imgTabla">
+                            <img src="{{asset('storage/images/users/'.$user['id'].'/'.$user['profile_picture']) }}" class="imgTabla">
                         @endif
                         
                         <p>{{$user['name']}}</p>

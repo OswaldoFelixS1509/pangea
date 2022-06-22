@@ -29,7 +29,11 @@
             
             <ul>
             <div class="profilePicture">
-                <img src="/images/users/user_picture.png" alt="">
+                        @if(Session::get('ProfilePicture') == "user_picture.png")
+                            <img src="{{asset('storage/images/users/'.Session::get('ProfilePicture'))}}">
+                        @else
+                            <img src="{{asset('storage/images/users/'.$user['id'].'/'.Session::get('ProfilePicture')) }}">
+                        @endif
             </div>
                 <li>
                     <div class="menuButton">

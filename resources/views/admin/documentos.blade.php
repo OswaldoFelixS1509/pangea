@@ -5,7 +5,13 @@
     <div class="documentList">
         <p class="title">Documentación del usuario {{$user->name}}</p>
     
-    
+        @if(Session::get('success'))
+            <div class="alert">
+                {{Session::get('success')}}
+            </div>
+            <br>
+        @endif
+        
 <br>
     @if(count($documentos) > 0)
     <table>
@@ -33,7 +39,12 @@
             <p class="email">{{$documento['created_at']}}</p> 
         </td>
         <td>
-            <input type="submit" class="delete" value="Eliminar">
+            <form action="{{ route('admin.documentDestroy',  ['user' => $user, 'documento' => $documento->id])}} " method="POST">
+                @csrf
+                @method('DELETE')
+                <input type="submit" class="delete" value="Eliminar">
+            </form>
+            
         </td>
         <td><a href="{{ route('admin.edit', $user)}}"><input type="button" value="Editar comentario"></a></td>
     </tr>
@@ -42,7 +53,7 @@
     {{$documentos->links()}}
     @else
     
-        <p class="msg">El usuario {{$user->name}} aún no tiene documentos</p>
+        <p class="msg" style="font-weight: bold;">El usuario {{$user->name}} aún no tiene documentos</p>
         
     
     @endif

@@ -37,6 +37,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::get('/admin/{user}/editar', [AdminController::class, 'edit'])->name('admin.edit');
     Route::put('/admin/{user}', [UserController::class, 'checkUpdate'])->name('admin.checkUpdate');
     Route::get('/admin/{user}/documentos', [DocumentController::class, 'documents'])->name('admin.documents');
+    Route::delete('/admin/{user}/documentos/{documento}', [DocumentController::class, 'destroy'])->name('admin.documentDestroy');
     Route::get('/admin/{user}/nuevo-documento', [DocumentController::class, 'create'])->name('admin.createDocument');
     Route::post('/admin/{user}/nuevo-documento', [DocumentController::class, 'store'])->name('admin.createDocument');
     

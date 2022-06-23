@@ -42,22 +42,31 @@
                             <img src="{{asset('storage/images/users/'.$user['id'].'/'.Session::get('ProfilePicture')) }}">
                         @endif
             </div>
-                <li>
-                    <a href="{{ route('admin.index')}}">Control usuarios</a>
-                </li>
-
-                <li>
-                    <a href="{{ route('register.index') }}">Nuevos usuarios</a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.contact')}}">Mensajes</a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.profile')}}">Perfil</a>
-                </li>
-                <li>
-                    <a class="cerrar" href="{{ route('login.logout')}}">Cerrar sesión </a>
-                </li>
+                <a href="{{ route('admin.index')}}">
+                    <li>
+                        Control usuarios
+                    </li>
+                </a>
+                <a href="{{ route('register.index') }}">
+                    <li>
+                        Nuevos usuarios
+                    </li>
+                </a>
+                <a href="{{ route('admin.contact')}}">
+                    <li>
+                        Mensajes
+                    </li>
+                </a>
+                <a href="{{ route('admin.profile')}}">
+                    <li>
+                        Perfil
+                    </li>
+                </a>
+                <a class="cerrar" href="{{ route('login.logout')}}">
+                    <li>
+                        Cerrar sesión
+                    </li>
+                </a>
             </ul>
             </aside>
             <section>

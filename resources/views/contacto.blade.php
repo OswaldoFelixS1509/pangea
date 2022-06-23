@@ -8,6 +8,13 @@
     <div class="contactForm" id="contactForm">
         <p>Por favor llena este formulario para ponernos en contacto contigo</p>
         <div class="txtCorreo" id="txtCorreo">
+            @if(Session::get('success'))
+            <div class="alert">
+                {{Session::get('success')}}
+            </div>
+
+            <br>
+            @endif
             <form method="POST" action="{{ route('header.contact')}}">
                 @csrf
                 <label class="text-email" for="email">Correo* </label><br>

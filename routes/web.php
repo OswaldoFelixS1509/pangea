@@ -33,7 +33,11 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     
     Route::get('/admin/control', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/perfil', [AdminController::class, 'profile'])->name('admin.profile');
-    Route::get('/admin/contacto', [ContactoController::class, 'show'])->name('admin.contact');
+    Route::get('/admin/contacto', [ContactoController::class, 'index'])->name('admin.contact');
+    Route::delete('/admin/contacto/{id}', [ContactoController::class, 'destroy'])->name('admin.messageDestroy');
+    Route::get('/admin/contacto/{mensaje}', [ContactoController::class, 'show'])->name('admin.message');
+    route::get('/admin/contacto/unseen/{mensaje}', [ContactoController::class, 'unseen'])->name('admin.unseen');
+    
     Route::get('/admin/{user}/editar', [AdminController::class, 'edit'])->name('admin.edit');
     Route::put('/admin/{user}', [UserController::class, 'checkUpdate'])->name('admin.checkUpdate');
     Route::get('/admin/{user}/documentos', [DocumentController::class, 'documents'])->name('admin.documents');

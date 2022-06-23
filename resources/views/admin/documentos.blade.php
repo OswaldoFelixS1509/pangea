@@ -46,7 +46,6 @@
             </form>
             
         </td>
-        <td><a href="{{ route('admin.edit', $user)}}"><input type="button" value="Editar comentario"></a></td>
     </tr>
     @endforeach
     </table>

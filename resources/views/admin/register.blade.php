@@ -14,7 +14,7 @@
     <br>
     @endif
     
-    <label>nombre </label> <br>
+    <label>Nombre completo</label> <br>
     <input class="txtInput" type="text" name="nombre" value="{{old('nombre')}}"> <br>
     @error('nombre')
         <div class="form-error"> 
@@ -22,7 +22,7 @@
         </div>
       <br>
     @enderror
-    <label>Username </label> <br>
+    <label>Nombre de usuario </label> <br>
     <input class="txtInput" type="text" value="{{old('usuario')}}" name="usuario"><br>
     @error('usuario')
         <div class="form-error"> 
@@ -37,7 +37,7 @@
       <option value="admin">Administrador</option>
     </select>
     <br>
-    <label>email </label> <br>
+    <label>Email </label> <br>
     <input class="txtInput" type="email" value="{{old('email')}}" name="email"> <br>
     @error('email')
         <div class="form-error"> 
@@ -45,7 +45,7 @@
         </div>
       <br>
     @enderror
-    <label> pass</label> <br>
+    <label> Contraseña</label> <br>
     <input class="txtInput" type="password" name="contraseña"> <br>
     @error('contraseña')
         <div class="form-error"> 
@@ -53,7 +53,7 @@
         </div>
       <br>
     @enderror
-    <label> confirm pass</label> <br>
+    <label> Confirmación de contraseña</label> <br>
     <input class="txtInput" type="password" name="confirmacion_contraseña"> <br>
     @error('confirmacion_contraseña')
         <div class="form-error"> 

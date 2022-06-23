@@ -14,19 +14,11 @@ class ContactoController extends Controller
      */
     public function index()
     {
-        
+        $mensajes = Contacto::orderBy('leido', 'asc')->paginate(15);
+        return view('admin.contacto', compact('mensajes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+ 
     /**
      * Store a newly created resource in storage.
      *
@@ -49,51 +41,40 @@ class ContactoController extends Controller
 
         $contacto->save();
 
-        return redirect()->route('header.contact')->with('alert', 'Datos enviados con exito \nPronto te contactaremos!');
+        return redirect()->route('header.contact')->with('success', 'Datos enviados con exito. Te contactaremos pronto!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Contacto  $contacto
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Contacto $contacto)
+ 
+    public function show(Contacto $mensaje)
     {
-        return view('admin.contacto');
+        
+
+        $mensaje->correo = $mensaje->correo;
+        $mensaje->telefono = $mensaje->telefono;
+        $mensaje->nombre = $mensaje->nombre;
+        $mensaje->mensaje = $mensaje->mensaje;
+        $mensaje->leido = 1;
+        $mensaje->save();
+        
+        return view('admin.mensaje', compact('mensaje'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Contacto  $contacto
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Contacto $contacto)
+  
+    public function unseen(Contacto $mensaje)
     {
-        //
+        $mensaje->correo = $mensaje->correo;
+        $mensaje->telefono = $mensaje->telefono;
+        $mensaje->nombre = $mensaje->nombre;
+        $mensaje->mensaje = $mensaje->mensaje;
+        $mensaje->leido = 0;
+        $mensaje->save();
+        return redirect()->route('admin.contact');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contacto  $contacto
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Contacto $contacto)
+  
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Contacto  $contacto
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Contacto $contacto)
-    {
-        //
+        Contacto::where('id', $id)->delete();
+        return back()->with('success', 'Documento eliminado con exito!');
     }
 }

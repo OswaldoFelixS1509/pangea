@@ -17,7 +17,19 @@ class DocumentController extends Controller
     function documents(User $user){
         //Hace una consulta para mostrar todos los archivos del usuario seleccionado
         $documentos = Post::where('user_id', $user->id)->orderBy('category', 'asc')->paginate(10);
-        return view('admin.documentos', compact('user'), compact('documentos'));
+        $autor = [];
+        foreach($documentos as $documento)
+        {
+            $autor[] = User::where('id', $documento->admin_id)->value('name');
+        }
+        if($autor > 0)
+        {
+            return view('admin.documentos', compact(['user', 'documentos', 'autor']));
+        }
+        else{
+            return view('admin.documentos', compact(['user', 'documentos']));
+        }
+        
         
     }
 
@@ -34,12 +46,6 @@ class DocumentController extends Controller
             'archivos' => 'required',
             
         ]);
-
-        if(!$request->hasFile('archivos'))
-        {
-            return back()->with('fail', 'No has agregado ningún archivo');
-        }
-
 
         $post = new Post();
 
@@ -58,19 +64,17 @@ class DocumentController extends Controller
 
         $files = $request->file('archivos');
 
-        $fileSaver = new Documento(); 
+        
         foreach($files as $file){
             $filename = Str::slug($file->getClientOriginalName(), '-') . '.' . $file->getClientOriginalExtension();
-
-
-
-            if(Storage::putFileAs('/public/files/users/'.$user->slug.'/'. $post->id .'/', $file, $filename))
+            if(Storage::putFileAs('/files/users/'.$user->slug.'/'. $post->id .'/', $file, $filename))
             {
-                $fileSaver->post_id = $post->id;
-                $fileSaver->filename = $filename;
-                $fileSaver->type = $file->getClientOriginalExtension();
-                
-                $fileSaver->save();
+                Documento::create([
+                    'post_id' => $post->id, 
+                    'filename' => $filename,
+                    'type' => $file->getClientOriginalExtension()
+    
+                ]);
             }
             
 

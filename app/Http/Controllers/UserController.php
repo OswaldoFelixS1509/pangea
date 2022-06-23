@@ -5,14 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Documento;
+use App\Models\Post;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     function index()
     {
+        $itinerarios = Post::where([
+            'user_id' => session()->get('LoggedUser'),
+            'category' => 'Itinerario'
+            ])->get();
+        $autor = [];
+        foreach($itinerarios as $itinerario)
+        {
+            $autor[] = User::where('id', $itinerario->admin_id)->value('name');
+        }
+        if($autor > 0)
+        {
+            return view('user.itinerario', compact(['itinerarios', 'autor']));
+        }
+        else
+        {
+            return view('user.itinerario', compact(['itinerarios']));
+        }
         
-        return view('user.itinerario');
+        
     }
 
     

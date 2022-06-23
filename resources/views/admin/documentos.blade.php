@@ -25,6 +25,9 @@
         <td>
             Fecha de subida
         </td>
+        <td>
+            Autor
+        </td>
         
     </tr>
     @foreach($documentos as $documento)
@@ -33,10 +36,18 @@
         <p class="email">{{$documento['title']}}</p>  
         </td>
         <td>
-        <p class="email">{{$documento['category']}}</p> 
+            @if($documento['category'] == 'pasesAbordar')
+                <p class="email">Pases de abordar</p> 
+            @else
+                <p class="email">{{$documento['category']}}</p> 
+            @endif
+        
         </td>
         <td>
             <p class="email">{{$documento['created_at']}}</p> 
+        </td>
+        <td>
+            <p class="email">{{$autor[$loop->index]}}</p> 
         </td>
         <td>
             <form action="{{ route('admin.documentDestroy',  ['user' => $user, 'documento' => $documento->id])}} " method="POST">

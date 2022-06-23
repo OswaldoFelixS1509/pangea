@@ -7,9 +7,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Yield is a mark for content sections -->
         <title>@yield('title')</title>
+        <link rel="stylesheet" type="text/css" href="{{url('css/layoutuser.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url('css/content-styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/layout.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/forms.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/aboutUs.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url('css/controlUsuarios.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url('css/layout_admin.css')}}">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 

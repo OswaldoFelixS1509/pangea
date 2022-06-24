@@ -5,10 +5,12 @@
     <head>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="{{ asset('/js/header.js')}}"></script>
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Yield is a mark for content sections -->
         <title>@yield('title')</title>
+        <link rel="stylesheet" href="{{url('css/layout.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/layout.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/forms.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/aboutUs.css')}}">
@@ -18,37 +20,31 @@
 
     <body>
         <header>
-                <div class="header1" id="header1">
-                    <div class="left" id="left"></div>
-                    <div class="logo" id="logo"> <a href="{{ route('header.index')}}"> <img src="{{url('images/logo_pangea.png')}}"  width="123px" height="84px"> </a>  </div>
-                    @if(Session::get('LoggedUser'))
+        <div class="wrapper">
+			<a href="{{ route('header.index')}}"><div class="logo"><img src="{{url('images/logo_pangea.png')}}"  width="123px" height="84px"></div> </a>
+			
+			<nav>
+                @if(Request::url() == "http://localhost:8000")
+				<a href="#aboutUs">¿Quienes somos?</a>
+				<a href="#workFlow">Servicio</a>
+				<a href="{{route('header.contact')}}">Contacto</a>
+                @else
+                <a href="{{ route('header.index')}}#aboutUs">¿Quienes somos?</a>
+				<a href="{{ route('header.index')}}#service">Servicio</a>
+				<a href="{{route('header.contact')}}">Contacto</a>
+                @endif
+                @if(Session::get('LoggedUser'))
                         @if(Session::get('Permission') == "user")
-                        <div class="login" id="login"> <a href="{{ route('user.index')}}"> <p>Mi perfil </p>  </a></div>
+                        <a href="{{ route('user.index')}}">Mi perfil</a>
                         @else
-                        <div class="login" id="login"> <a href="{{ route('admin.index')}}"> <p>Mi perfil </p>  </a></div>
+                        <a href="{{ route('admin.index')}}">Mi perfil </a>
                         @endif
                     @else
-                    <div class="login" id="login"> <a href="{{ route('login.index')}}"> <p>Inicia sesión </p>  </a></div>
+                    <a href="{{ route('login.index')}}">Inicia sesión</a>
                     @endif
-                    
-                </div>
-                @if(Request::url() == "http://localhost:8000" || Request::url() == "http://localhost:8000/contacto")
-                    <div class="header2" id="header2">
-                        <!-- Replace  http://localhost:8000 url with the real url when it the server-->
-                        @if(Request::url() == "http://localhost:8000")
-                            <div> <a href="#aboutUs"> <p> ¿Quienes somos? </p> </a> </div>
-                            <div> <a href="#service"> <p> Servicio </p> </a></div>
-                            <div> <a href="{{ route('header.contact') }}">  <p> Contacto </p></a></div>
-                        @else
-                            <div> <a href="{{ route('header.index')}}#aboutUs"> <p> ¿Quienes somos? </p> </a> </div>
-                            <div> <a href="{{ route('header.index')}}#service"> <p> Servicio </p> </a></div>
-                            <div> <a href="#content"> <p> Contacto </p> </a></div>
-                        @endif
-                    </div>
-                @else
-                    
-                @endif
-                   
+               
+			</nav>
+		</div>   
         </header>
         <!-- This section is where we will show the content -->
         <div class="content" id="content">
@@ -57,7 +53,7 @@
         <!-- Footer information -->
         <footer>
                 <div class="footerleft" id="footerleft">
-                    texto 1
+                    Redes sociales:
                 </div>
                 <div class="footerright" id="footerleft">
                     texto 2

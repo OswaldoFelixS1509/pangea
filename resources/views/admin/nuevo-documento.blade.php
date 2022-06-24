@@ -37,10 +37,10 @@
     <label for="categoria">Categoria</label><br>
     <select class="categoria" name="categoria" id="categoria">
         <option value="Itinerario" selected>Itinerario</option>
-        <option value="calendario" >Calendario</option>
-        <option value="pasesAbordar" >Pases de abordar</option>
-        <option value="infoCovid" >Información Covid</option>
-        <option value="imagenes" >Imagenes</option>
+        <option value="Calendario" >Calendario</option>
+        <option value="PasesAbordar" >Pases de abordar</option>
+        <option value="InfoCovid" >Información Covid</option>
+        <option value="Imagenes" >Imagenes</option>
     </select>
     @error('categoria')
         <div class="form-error"> 

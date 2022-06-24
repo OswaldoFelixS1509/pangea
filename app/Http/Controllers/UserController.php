@@ -10,8 +10,16 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    function index()
+    /*
+        amogus ඞ
+        ඞ ඞ
+        ඣ
+        ඝ ඞ
+    */
+    function index(Request $request)
     {
+
+
         $itinerarios = Post::where([
             'user_id' => session()->get('LoggedUser'),
             'category' => 'Itinerario'
@@ -31,6 +39,43 @@ class UserController extends Controller
         }
         
         
+    }
+
+    function showDocument($request){
+
+        $post = Post::where([
+            'id' => $request,
+            'user_id' => session()->get('LoggedUser'), 
+        ])->first();
+
+        $archivos = Documento::where('post_id', $request)->get();
+
+        switch($post->category)
+        {
+            case 'Itinerario':
+                {
+                    
+                    break;
+                }
+            case 'Calendario':
+                {
+                    break;
+                }
+            case 'PasesAbordar':
+                {
+                    break;
+                }
+            case 'InfoCovid':
+                {
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }
+
+        return $archivos;
     }
 
     
@@ -98,5 +143,7 @@ class UserController extends Controller
         $user->save();
        
     }
+
+
 
 }

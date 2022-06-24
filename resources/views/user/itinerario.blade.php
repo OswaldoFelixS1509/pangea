@@ -30,11 +30,12 @@
                     <td>
                         <p class="email">{{substr($itinerario['created_at'], 0, 10)  }}</p> 
                     </td>
-                    <a href="">
-                        <td>
-                        <input type="button" value="Documentación">
-                        </td>
-                    </a>
+                    <td>
+                        <a href="{{route('user.showDocument', [$itinerario])}}">
+                            <input type="button" value="Documentación">
+                        </a>
+                    </td>
+                    
                 </tr>
                 @endforeach
             </table>

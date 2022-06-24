@@ -47,6 +47,8 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     
     //User Routes
     Route::get('/user/itinerario', [UserController::class, 'index'])->name('user.index');
+    Route::get('/user/posts/{posts}', [UserController::class, 'showDocument'])->name('user.showDocument');
+    //Route::get('/user/{categoria}/{slugTitle}'. [UserController::class, 'index'])->name('user.postDetail');
     
 
 

@@ -8,6 +8,15 @@
     background-color: #fff;
     box-shadow: 7px 7px 15px #8e847d;
   }
+  .imagen1{
+    display: none;
+  }
+  .imagen2{
+    display: none;
+  }
+  .imagen3{
+    display: none;
+  }
   .workFlow{
     background-color: #C4A467;
     padding-left: 0.6em;
@@ -29,5 +38,20 @@
     margin-top: 50px;
     box-shadow: 7px 7px 15px #c0aa7b;
   }
-  
-  
+  @media screen and (max-width: 950px) {
+    .aboutUs{
+      padding-top: 100px;
+    }
+    .imagen,.imagen4,.imagen5{
+      display: none;
+    }
+    .imagen1{
+      display: block;
+    }
+    .imagen2{
+      display: block;
+    }
+    .imagen3{
+      display: block;
+    }
+  }

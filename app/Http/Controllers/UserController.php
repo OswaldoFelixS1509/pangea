@@ -20,25 +20,91 @@ class UserController extends Controller
     {
 
 
-        $itinerarios = Post::where([
+        $posts = Post::where([
             'user_id' => session()->get('LoggedUser'),
             'category' => 'Itinerario'
             ])->get();
         $autor = [];
-        foreach($itinerarios as $itinerario)
+        $categoria = "Itinerario";
+        foreach($posts as $post)
         {
-            $autor[] = User::where('id', $itinerario->admin_id)->value('name');
+            
+            $autor[] = User::where('id', $post->admin_id)->value('name');
         }
+        
         if($autor > 0)
         {
-            return view('user.itinerario', compact(['itinerarios', 'autor']));
+            return view('user.itinerario', compact(['posts', 'autor', 'categoria']));
         }
         else
         {
-            return view('user.itinerario', compact(['itinerarios']));
+            return view('user.itinerario', compact(['posts']));
         }
         
         
+    }
+
+    function calendario(){
+        $posts = Post::where([
+            'user_id' => session()->get('LoggedUser'),
+            'category' => 'calendario'
+            ])->get();
+        $autor = [];
+        $categoria = "Calendario";
+        foreach($posts as $post)
+        {
+            $autor[] = User::where('id', $post->admin_id)->value('name');
+        }
+        if($autor > 0)
+        {
+            return view('user.itinerario', compact(['posts', 'autor', 'categoria']));
+        }
+        else
+        {
+            return view('user.itinerario', compact(['posts']));
+        }
+    }
+
+    function pasesAbordar(){
+        $posts = Post::where([
+            'user_id' => session()->get('LoggedUser'),
+            'category' => 'PasesAbordar'
+            ])->get();
+        $autor = [];
+        $categoria = "Pases de abordaje";
+        foreach($posts as $post)
+        {
+            $autor[] = User::where('id', $post->admin_id)->value('name');
+        }
+        if($autor > 0)
+        {
+            return view('user.itinerario', compact(['posts', 'autor', 'categoria']));
+        }
+        else
+        {
+            return view('user.itinerario', compact(['posts']));
+        }
+    }
+
+    function infoCovid(){
+        $posts = Post::where([
+            'user_id' => session()->get('LoggedUser'),
+            'category' => 'InfoCovid'
+            ])->get();
+        $autor = [];
+        $categoria = "Información Covid";
+        foreach($posts as $post)
+        {
+            $autor[] = User::where('id', $post->admin_id)->value('name');
+        }
+        if($autor > 0)
+        {
+            return view('user.itinerario', compact(['posts', 'autor', 'categoria']));
+        }
+        else
+        {
+            return view('user.itinerario', compact(['posts']));
+        }
     }
 
     function showDocument($request){
@@ -48,34 +114,42 @@ class UserController extends Controller
             'user_id' => session()->get('LoggedUser'), 
         ])->first();
 
-        $archivos = Documento::where('post_id', $request)->get();
-
-        switch($post->category)
-        {
+        switch($post->category){
             case 'Itinerario':
                 {
-                    
+                    $categoria = "Itinerario";
                     break;
                 }
             case 'Calendario':
                 {
+                    $categoria = 'Calendario';
                     break;
                 }
             case 'PasesAbordar':
                 {
+                    $categoria = 'Pases de abordar';
                     break;
                 }
             case 'InfoCovid':
                 {
+                    $categoria = 'Información covid';
                     break;
                 }
             default:
-                {
-                    break;
-                }
+            {
+                $categoria = "Documento";
+                break;
+            }
+
         }
 
-        return $archivos;
+        $categoria = $post->category;
+        $autor = User::where('id', $post->admin_id)->first();
+        $archivos = Documento::where('post_id', $request)->get();
+        
+       
+
+        return view('user.documento', compact(['archivos', 'post', 'autor', 'categoria']));
     }
 
     

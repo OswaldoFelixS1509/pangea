@@ -80,9 +80,10 @@ header nav a:hover {
     float: left;
     padding: 20px;
   }
-  .content{
-    padding-top: 110px;
-}
+  .content {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 header, header nav, header nav .logo{
@@ -128,17 +129,16 @@ body{
 {
     width: 1rem;
 }
-.content{
+ .content{
     width: 100%;
     display: flex;
     flex-direction: column;
     height: fit-content;
     margin-top: 70px;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
     align-items: center;
     padding-top: 50px;
 }
-
 footer{
     background-color: #545352;
     background-image: url("../images/texture.png");
@@ -155,14 +155,17 @@ footer{
 
 .footerright{
     padding-left: 12px;
+    color:#f2f2f2;
+  	font-size:20px;
     width: 50%;
     height: 100%;
     
 }
 .footerleft{
-    
     padding-left: 12px;
     width: 50%;
     height: 100%;
     border-right: 1px solid #fff;
+    color:#f2f2f2;
+  	font-size:20px;
 }

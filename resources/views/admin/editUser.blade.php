@@ -1,5 +1,7 @@
 @extends('admin/layout_admin')
 
+@section('title' ,'Editar usuario')
+
 @section('content')
 
 

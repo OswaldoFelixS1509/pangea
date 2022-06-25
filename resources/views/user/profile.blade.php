@@ -1,16 +1,13 @@
 @extends('user/layout_user')
 
-@section('title', $categoria)
+@section('title', 'Perfil')
 
 @section('content')
 
     <div class="contieneDatos">
-        @if(count($posts) > 0)
+        @if(count($itinerarios) > 0)
             
             <table>
-                <caption>
-                    {{$categoria}}
-                </caption>
                 <tr>
                     <td>
                         Titulo
@@ -24,19 +21,19 @@
                     
                     
                 </tr>
-                @foreach($posts as $post)
+                @foreach($itinerarios as $itinerario)
                 <tr>
-                    <td> 
-                            <p class="email">{{$post['title']}}</p>  
+                    <td>
+                    <p class="email">{{$itinerario['title']}}</p>  
                     </td>
                     <td>
                     <p class="email">{{$autor[$loop->index]}}</p> 
                     </td>
                     <td>
-                        <p class="email">{{substr($post['created_at'], 0, 10)  }}</p> 
+                        <p class="email">{{substr($itinerario['created_at'], 0, 10)  }}</p> 
                     </td>
                     <td>
-                        <a href="{{route('user.showDocument', [$post])}}">
+                        <a href="{{route('user.showDocument', [$itinerario])}}">
                             <input type="button" value="Documentación">
                         </a>
                     </td>

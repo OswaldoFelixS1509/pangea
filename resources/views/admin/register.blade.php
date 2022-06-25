@@ -1,5 +1,7 @@
 @extends('admin/layout_admin')
 
+@section('title', 'Nuevo usuario')
+
 @section('content')
 
 

@@ -8,6 +8,7 @@
         <!-- Yield is a mark for content sections -->
         <title>@yield('title')</title>
         <link rel="stylesheet" type="text/css" href="{{url('css/layoutuser.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url('css/documentoUser.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/content-styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/layout.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/forms.css')}}">
@@ -41,21 +42,21 @@
             </div>
                 <li>
                     <div class="menuButton">
-                    <a href="#">Itinerario</a>
+                    <a href="{{route('user.index')}}">Itinerario</a>
                     </div>
                 </li>
 
                 <li>
-                    <a href="#">Calendario</a>
+                    <a href="{{route('user.calendario')}}">Calendario</a>
                 </li>
                 <li>
-                    <a href="#">Pases de abordar</a>
+                    <a href="{{route('user.pasesAbordar')}}">Pases de abordar</a>
                 </li>
                 <li>
-                    <a href="#">Info covid</a>
+                    <a href="{{route('user.infoCovid')}}">Info covid</a>
                 </li>
                 <li>
-                    <a hrefD="#">Perfil</a>
+                    <a hrefD="{{route('user.profile')}}">Perfil</a>
                 </li>
                 <li>
                     <a class="cerrar" href="{{ route('login.logout')}}">Cerrar sesión </a>

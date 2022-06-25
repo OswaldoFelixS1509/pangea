@@ -47,6 +47,10 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     
     //User Routes
     Route::get('/user/itinerario', [UserController::class, 'index'])->name('user.index');
+    Route::get('/user/calendario', [UserController::class, 'calendario'])->name('user.calendario');
+    Route::get('/user/pases-de-abordar', [UserController::class, 'pasesAbordar'])->name('user.pasesAbordar');
+    Route::get('/user/informacion-covid', [UserController::class, 'infoCovid'])->name('user.infoCovid');
+    Route::get('/user/perfil', [UserController::class, 'perfil'])->name('user.profile');
     Route::get('/user/posts/{posts}', [UserController::class, 'showDocument'])->name('user.showDocument');
     //Route::get('/user/{categoria}/{slugTitle}'. [UserController::class, 'index'])->name('user.postDetail');
     

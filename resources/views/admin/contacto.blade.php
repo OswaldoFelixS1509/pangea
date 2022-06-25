@@ -1,5 +1,7 @@
 @extends('admin/layout_admin')
 
+@section('title', 'Mensajes de contacto')
+
 @section('content')
 
 <div class="contieneDatos">

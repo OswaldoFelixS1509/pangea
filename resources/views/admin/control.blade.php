@@ -1,5 +1,7 @@
 @extends('admin/layout_admin')
 
+@section('title', 'Panel de control')
+
 @section('content')
     <div class="contieneDatos">
     @if(count($users) > 1)

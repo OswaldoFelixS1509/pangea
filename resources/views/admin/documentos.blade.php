@@ -1,5 +1,6 @@
 @extends('admin/layout_admin')
 
+@section('title', 'Documentación')
 
 @section('content')
     <div class="documentList">

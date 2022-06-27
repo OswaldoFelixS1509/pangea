@@ -70,8 +70,3 @@
 @endsection
 
 
-@if(session()->has('alert'))
-    <script>
-        alert("  {{ session()->get('alert') }} ")
-    </script>
-@endif

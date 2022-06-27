@@ -55,3 +55,21 @@
       display: block;
     }
   }
+  .contenedorp{
+    height: fit-content;
+    padding-left: .6em;
+    width: 100%;
+    border:3px solid rgb(255, 255, 255);
+    border-radius:22px;
+    background-color: #fff;
+    box-shadow: 7px 7px 15px #8e847d;
+  }
+  .contenedormp{
+    height: fit-content;
+    padding-left: .6em;
+    width:100%;
+    border:3px solid rgb(255, 255, 255);
+    border-radius:22px;
+    background-color: #fff;
+    box-shadow: 7px 7px 15px #8e847d;
+  }

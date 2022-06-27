@@ -4,10 +4,23 @@
 
 
 header {
-    padding-bottom: 30px;
-    width: 2rem;
-
+    width:100%; /* Establecemos que el header abarque el 100% del documento */
+	overflow:hidden; /* Eliminamos errores de float */
+	background: url("../images/texture.png"), #545352;
+    background-blend-mode: multiply;
+	margin-bottom:0px;
+	text-align:center;
 }
+.wrapper {
+	width:90%; /* Establecemos que el ancho sera del 90% */
+	max-width:1000px; /* Aqui le decimos que el ancho máximo sera de 1000px */
+	margin:50%; /* Centramos los elementos */
+	overflow:hidden; /* Eliminamos errores de float */
+}
+header .logo {
+    line-height:250px;
+    place-content: center;
+  }
 
 .row {
     width: 100%;

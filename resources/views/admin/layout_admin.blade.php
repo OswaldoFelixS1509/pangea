@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="{{ asset('/js/header.js')}}"></script>
+    
         <!-- Yield is a mark for content sections -->
         <title>@yield('title')</title>
         
@@ -24,9 +26,9 @@
 
 <body>
 <header>
-                <div class="logo" id="logo"> <center> <a href="{{ route('header.index')}}"><img src="{{url('images/logo_pangea.png')}}"  width="123px" height="84px"> </a></center></div>
-            </div>
-</header>
+        <div class="wrapper">
+        <a href="{{ route('header.index')}}"><div class="logo"><img src="{{url('images/logo_pangea.png')}}"  width="123px" height="84px"></div> </a>
+    </header>
 <div class="row">
             <aside>
 

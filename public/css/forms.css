@@ -12,7 +12,7 @@
   
   
   p{
-    font-size: 24px;
+    font-size: 2em;
     opacity: 100%;
   }
   
@@ -33,7 +33,7 @@
   
   label{
     padding-left: 40px;
-    font-size: 22px;
+    font-size: 1.6em;
   }
   
   .form-error{

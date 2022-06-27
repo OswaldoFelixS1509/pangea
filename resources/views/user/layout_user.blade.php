@@ -74,10 +74,12 @@
 
 <footer>
                 <div class="footerleft" id="footerleft">
-                    texto 1
+                <img src="{{url('images/instagram.png')}}" style="float:left;width:.75in;height:.75in;padding-top: 10px; padding-left:10%;">
+                <img src="{{url('images/whatsapp.png')}}" style="float:right;width:.75in;height:.75in;padding-right:10%; padding-top: 10px">
                 </div>
                 <div class="footerright" id="footerleft">
-                    texto 2
+                <div id="imagencorreo" class="imagencorreo" ><img src="{{url('images/correo.png')}}" style="float:left;width:.75in;height:.75in; padding-top: 10px; padding-left:10%;">
+                <img src="{{url('images/facebook.png')}}" style="float:right;width:.75in;height:.75in;padding-right:10%; padding-top: 10px; ">
                 </div>
 </footer>
 

@@ -3,7 +3,7 @@ header {
 	overflow:hidden; /* Eliminamos errores de float */
 	background: url("../images/texture.png"), #545352;
   background-blend-mode: multiply;
-	margin-bottom:20px;
+	margin-bottom:0px;
 }
 
 .wrapper {
@@ -84,6 +84,15 @@ header nav a:hover {
     width: 100%;
     height: 100%;
   }
+  .palabra{
+    display: none;
+  }
+  .imagenw{
+    display: block;
+  }
+  .imagenwh{
+    display: none;
+  }
 }
 
 header, header nav, header nav .logo{
@@ -143,14 +152,13 @@ footer{
     background-color: #545352;
     background-image: url("../images/texture.png");
     background-blend-mode: multiply;
-    
     width: 100%;
     height: 120px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items:flex-start;
-    padding-top: 10px;
+    padding-top: 8px;
 }
 
 .footerright{
@@ -168,4 +176,13 @@ footer{
     border-right: 1px solid #fff;
     color:#f2f2f2;
   	font-size:20px;
+}
+.palabra{
+  padding-top: 4%;
+  padding-left: 15%;
+  font-size: 1em;
+  color: #fff;
+}
+.imagenw{
+  display: none;
 }

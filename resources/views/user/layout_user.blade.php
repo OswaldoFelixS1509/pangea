@@ -24,9 +24,11 @@
 
 <body>
 <header>
-            <div class="header1" id="header1">
-                <div class="logo" id="logo"> <a href="{{ route('header.index')}}"><img src="{{url('images/logo_pangea.png')}}"  width="123px" height="84px"> </a></div>
-            </div>
+            <div class="wrapper">
+			<a href="{{ route('header.index')}}"><div class="logo"><img src="{{url('images/logo_pangea.png')}}"  width="123px" height="84px"></div> </a>
+            <nav>
+            </nav>
+			</div>
 </header>
 <div class="row">
             <aside>

@@ -53,12 +53,12 @@
         <!-- Footer information -->
         <footer>
                 <div class="footerleft" id="footerleft">
-                <img src="{{url('images/instagram.png')}}" style="float:left;width:.75in;height:.75in;padding-top: 10px; padding-left:10%;">
-                <img src="{{url('images/whatsapp.png')}}" style="float:right;width:.75in;height:.75in;padding-right:10%; padding-top: 10px">
+                <a href="https://www.instagram.com/pangeatc/?igshid=YmMyMTA2M2Y="><img src="{{url('images/instagram.png')}}" style="float:left;width:.75in;height:.75in;padding-top: 10px; padding-left:10%;"></a>
+                <a href="https://wa.me/message/HC2RWSUVKOPDD1"><img src="{{url('images/whatsapp.png')}}" style="float:right;width:.75in;height:.75in;padding-right:10%; padding-top: 10px"></a>
                 </div>
                 <div class="footerright" id="footerleft">
                     <div id="imagencorreo" class="imagencorreo" ><img src="{{url('images/correo.png')}}" style="float:left;width:.75in;height:.75in; padding-top: 10px; padding-left:10%;">
-                    <img src="{{url('images/facebook.png')}}" style="float:right;width:.75in;height:.75in;padding-right:10%; padding-top: 10px; ">
+                    <a href="https://www.facebook.com/PangeaTravelConsulting/"><img src="{{url('images/facebook.png')}}" style="float:right;width:.75in;height:.75in;padding-right:10%; padding-top: 10px; "></a>
                 </div>
         </footer>
 

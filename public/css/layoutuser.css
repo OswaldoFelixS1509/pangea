@@ -10,17 +10,25 @@ header {
     background-blend-mode: multiply;
 	margin-bottom:0px;
 	text-align:center;
+    display: Flex;
+    justify-content: Center;
+    Align-content: center;
 }
 .wrapper {
 	width:90%; /* Establecemos que el ancho sera del 90% */
 	max-width:1000px; /* Aqui le decimos que el ancho máximo sera de 1000px */
 	margin:50%; /* Centramos los elementos */
 	overflow:hidden; /* Eliminamos errores de float */
+    display: Flex;
+    justify-content: Center;
+    Align-content: center;
 }
 
 header .logo {
     line-height:250px;
-    float:left;
+    display: Flex;
+    justify-content: Center;
+    Align-content: center;
   }
   
   header nav {

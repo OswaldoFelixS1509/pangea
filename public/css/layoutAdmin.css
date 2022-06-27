@@ -16,6 +16,9 @@ header {
 	max-width:1000px; /* Aqui le decimos que el ancho máximo sera de 1000px */
 	margin:50%; /* Centramos los elementos */
 	overflow:hidden; /* Eliminamos errores de float */
+    display: Flex;
+    justify-content: Center;
+    Align-content: center;
 }
 header .logo {
     line-height:250px;

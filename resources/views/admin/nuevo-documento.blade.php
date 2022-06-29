@@ -78,10 +78,10 @@
     ClassicEditor
     .create( document.querySelector( '#comment' ), {
         language: 'es',
-        toolbar: [ 'heading', '|',
+        toolbar: [ 
         'fontfamily', 'fontsize', '|',
          'bold', 'italic', 'link', '|',
-          'undo', 'redo', 'numberedList', 'bulletedList' ],
+          'undo', 'redo'],
     } )
     .then( editor => {
         console.log( editor );

@@ -80,7 +80,7 @@ class DocumentController extends Controller
 
         }
 
-        return back()->with('success', 'Archivo guardado exitosamente!');
+        return back()->with('success', 'Archivos guardado exitosamente!');
     }
 
     function destroy(Request $request, User $user, $documento){
@@ -95,7 +95,7 @@ class DocumentController extends Controller
 
         Post::where('id', $documento)->delete();
         
-        return back()->with('success', 'Documento eliminado con exito!');
+        return back()->with('success', 'Archivos eliminados con exito!');
        
     }
 

@@ -9,7 +9,7 @@
         </div>
         <div class="archivos">
             @foreach($archivos as $archivo)
-            
+                <label></label>
             @endforeach
         </div>
     </div>

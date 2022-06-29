@@ -5,12 +5,10 @@
 @section('content')
 
     <div class="contieneDatos">
+        <label class="">{{$categoria}}</label>
         @if(count($posts) > 0)
             
             <table>
-                <caption>
-                    {{$categoria}}
-                </caption>
                 <tr>
                     <td>
                         Titulo

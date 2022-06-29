@@ -123,16 +123,6 @@ class UserController extends Controller
         ])->first();
 
         switch($post->category){
-            case 'Itinerario':
-                {
-                    $categoria = "Itinerario";
-                    break;
-                }
-            case 'Calendario':
-                {
-                    $categoria = 'Calendario';
-                    break;
-                }
             case 'PasesAbordar':
                 {
                     $categoria = 'Pases de abordar';
@@ -145,7 +135,7 @@ class UserController extends Controller
                 }
             default:
             {
-                $categoria = "Documento";
+                $categoria = $post->category;
                 break;
             }
 

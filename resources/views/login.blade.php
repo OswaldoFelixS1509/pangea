@@ -3,23 +3,17 @@
 @section('title', 'Inicio de sesión')
 
 @section('content')
-<div class="backbutton">
-    <a href="{{url()->previous()}}"> 
-    <button class="btnBack">Regresar </button>
-    </a>
-</div>
 
 
 <div class="loginForm">
-@if(Session::get('message'))
-    <div>
-    {{Session::get('message')}}
-    </div>
-@endif
+
 
 @if(Session::get('fail'))
-    <script> alert('{{Session::get("fail")}}'); </script>
-@endif
+    <div class="failalert">
+      {{Session::get('fail')}}
+    </div>
+    <br>
+    @endif
 
     <p>Inicio de sesión </p>
     <div class="txtCorreo" id="txtCorreo">

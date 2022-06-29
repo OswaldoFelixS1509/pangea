@@ -7,6 +7,10 @@ use App\Models\User;
 use App\Models\Documento;
 use App\Models\Post;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
@@ -18,8 +22,6 @@ class UserController extends Controller
     */
     function index(Request $request)
     {
-
-
         $posts = Post::where([
             'user_id' => session()->get('LoggedUser'),
             'category' => 'Itinerario'
@@ -107,6 +109,12 @@ class UserController extends Controller
         }
     }
 
+    function perfil(){
+        $user = User::where('id', session()->get('LoggedUser'))->first();
+
+        return view('user.editProfile', compact('user'));
+    }
+
     function showDocument($request){
 
         $post = Post::where([
@@ -160,7 +168,7 @@ class UserController extends Controller
             'nombre' => 'required',
             'usuario' => 'required',
             'email' => 'required|email',
-            'userType' => 'required',
+            'archivos' => 'nullable||mimes:jpeg,png,jpg,gif'
         ]);
 
         if( !empty(strip_tags($request->input('contraseña'))) )
@@ -174,7 +182,6 @@ class UserController extends Controller
         if( strip_tags($request->input('usuario')) == $user->username && strip_tags($request->input('email')) == $user->email)
         {
                 $this->update($user, $request);
-                return back()->with('success', 'Datos guardados con exito');
         }
         else{
                 $errormsg = "";
@@ -188,7 +195,7 @@ class UserController extends Controller
                         }
                            
                 }
-                }
+            }
                 $user3 = User::where('username', '=', strip_tags($request->input('usuario')))->get();
                 if($user3->count() > 0 == TRUE)
                 {
@@ -200,19 +207,42 @@ class UserController extends Controller
                     
                 }    
             
-            
                 $this->update($user, $request);
-                return back()->with('success', 'Datos guardados con exito');
+                
+                return back()->with('success', 'Datos guardados con exito');  
             
     }
 
 
     function update(User $user, Request $request )
     {
+        
+        $file = $request->file('archivos');
+
+        if($request->file('archivos')!=null)
+        {
+            
+            
+            if($user->profile_picture != 'user_picture.png'){
+                $image_path = public_path('storage/images/users/'. $user->slug).'/'.$user->profile_picture;
+                unlink($image_path);
+            }
+            $filename = Str::slug($file->getClientOriginalName(), '-') . '.' . $file->getClientOriginalExtension();
+            if($user->id == session()->get('LoggedUser'))
+            {
+                session()->put('ProfilePicture', $filename); 
+            }
+            if(Storage::putFileAs('/images/users/'.$user->slug.'/', $file, $filename))
+            {
+                $user->profile_picture = $filename;
+            }  
+        }
+
         $user->name = strip_tags($request->input('nombre'));
         $user->username = strip_tags($request->input('usuario'));
         $user->email = strip_tags($request->input('email'));
         $user->user_type = strip_tags($request->input('userType'));
+        
 
         $user->save();
        

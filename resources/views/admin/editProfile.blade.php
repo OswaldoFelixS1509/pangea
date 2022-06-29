@@ -1,6 +1,6 @@
 @extends('admin/layout_admin')
 
-@section('title' ,'Editar usuario')
+@section('title', 'Cambiar datos de perfil')
 
 @section('content')
 
@@ -38,19 +38,6 @@
         </div>
       <br>
     @enderror
-
-    <label> Tipo de usuario</label> <br>
-    <select name="userType">
-        @if($user['user_type'] == 'user')
-            <option value="user" selected>Usuario</option>
-            <option value="admin">Administrador</option>
-        @else
-            <option value="user" >Usuario</option>
-            <option value="admin" selected>Administrador</option>
-        @endif
-    </select>
-    <br>
-
     <label for="Subir archivo">Foto de perfil</label> <br>
     <input type="file" value="{{ old('archivos')}}" name="archivos" id="archivos  ">
     <br>
@@ -76,7 +63,17 @@
         </div>
       <br>
     @enderror
+    <select name="userType" style="display: none;">
+        @if($user['user_type'] == 'user')
+            <option value="user" selected>Usuario</option>
+            <option value="admin">Administrador</option>
+        @else
+            <option value="user" >Usuario</option>
+            <option value="admin" selected>Administrador</option>
+        @endif
+    </select>
     <button class="btnSubmit">Actualizar datos </button>
 </form>
+
 
 @endsection

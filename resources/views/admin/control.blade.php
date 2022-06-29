@@ -4,9 +4,10 @@
 
 @section('content')
     <div class="contieneDatos">
+        <label for="title">Control de usuarios</label>
     @if(count($users) > 1)
         <table>
-            <caption>Control de usuarios</caption>
+            
             <tr>
         <td>
             Nombre completo
@@ -27,7 +28,7 @@
                         @if($user['profile_picture'] == "user_picture.png")
                             <img src="{{asset('storage/images/users/'.$user['profile_picture'])}}" class="imgTabla">
                         @else
-                            <img src="{{asset('storage/images/users/'.$user['id'].'/'.$user['profile_picture']) }}" class="imgTabla">
+                            <img src="{{asset('storage/images/users/'.$user['slug'].'/'.$user['profile_picture']) }}" class="imgTabla">
                         @endif
                         
                         <p>{{$user['name']}}</p>

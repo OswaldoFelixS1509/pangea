@@ -3,14 +3,15 @@ header {
 	overflow:hidden; /* Eliminamos errores de float */
 	background: url("../images/texture.png"), #545352;
   background-blend-mode: multiply;
-	margin-bottom:0px;
+  
 }
 
 .wrapper {
-	width:90%; /* Establecemos que el ancho sera del 90% */
+	width:100%; /* Establecemos que el ancho sera del 90% */
 	max-width:1000px; /* Aqui le decimos que el ancho máximo sera de 1000px */
 	margin:auto; /* Centramos los elementos */
 	overflow:hidden; /* Eliminamos errores de float */
+  
 }
 
 header .logo {
@@ -120,24 +121,7 @@ body{
     width: 123px;
     height: 84px;
   }
-.login
-{
-    padding: 12px;
-    font-size: 3em;
-    color: rgb(255, 255, 255);
-}
 
-.back{
-  padding: 12px;
-    font-size: 3em;
-    color: #fff;
-    text-decoration: underline;
-}
-
-.left
-{
-    width: 1rem;
-}
  .content{
     width: 100%;
     display: flex;
@@ -146,7 +130,6 @@ body{
     margin-top: 70px;
     margin-bottom: 40px;
     align-items: center;
-    padding-top: 50px;
 }
 footer{
     background-color: #545352;

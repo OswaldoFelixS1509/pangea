@@ -33,6 +33,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     
     Route::get('/admin/control', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/perfil', [AdminController::class, 'profile'])->name('admin.profile');
+    Route::get('/admin/actualizar-datos', [AdminController::class, 'editProfile'])->name('admin.editProfile');
     Route::get('/admin/contacto', [ContactoController::class, 'index'])->name('admin.contact');
     Route::delete('/admin/contacto/{id}', [ContactoController::class, 'destroy'])->name('admin.messageDestroy');
     Route::get('/admin/contacto/{mensaje}', [ContactoController::class, 'show'])->name('admin.message');
@@ -45,12 +46,15 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::get('/admin/{user}/nuevo-documento', [DocumentController::class, 'create'])->name('admin.createDocument');
     Route::post('/admin/{user}/nuevo-documento', [DocumentController::class, 'store'])->name('admin.createDocument');
     
+
     //User Routes
     Route::get('/user/itinerario', [UserController::class, 'index'])->name('user.index');
     Route::get('/user/calendario', [UserController::class, 'calendario'])->name('user.calendario');
     Route::get('/user/pases-de-abordar', [UserController::class, 'pasesAbordar'])->name('user.pasesAbordar');
     Route::get('/user/informacion-covid', [UserController::class, 'infoCovid'])->name('user.infoCovid');
     Route::get('/user/perfil', [UserController::class, 'perfil'])->name('user.profile');
+    Route::get('/user/actualizar-datos', [AdminController::class, 'editProfile'])->name('user.editProfile');
+
     Route::get('/user/posts/{posts}', [UserController::class, 'showDocument'])->name('user.showDocument');
     //Route::get('/user/{categoria}/{slugTitle}'. [UserController::class, 'index'])->name('user.postDetail');
     

@@ -19,9 +19,11 @@ class LoginController extends Controller
     {
         if(session()->has('LoggedUser'))
         {
-            session()->pull('LoggedUser');
-            session()->pull('Permission');
-            session()->pull('profilePicture');
+            // session()->pull('LoggedUser');
+            // session()->pull('Permission');
+            // session()->pull('ProfilePicture');
+            // session()->pull('Slug');
+            session()->flush();
             return redirect()->route('login.index');
         }
     }
@@ -38,7 +40,7 @@ class LoginController extends Controller
         
         if(!$userInfo)
         {
-            return back()->with('invalidUser', 'Usuario incorrecto');
+            return back()->with('fail', 'Usuario incorrecto');
         }
         else{
             //Revisar contraseña
@@ -46,7 +48,9 @@ class LoginController extends Controller
             {
                 $request->session()->put('LoggedUser', $userInfo->id);
                 $request->session()->put('Permission', $userInfo->user_type);
+                $request->session()->put('Slug', $userInfo->slug);
                 $request->session()->put('ProfilePicture', $userInfo->profile_picture);
+                
                
                 if($userInfo->user_type == "admin")
                 {
@@ -58,7 +62,7 @@ class LoginController extends Controller
                 
             }
             else{
-                return back()->with('invalidPassword', 'Contraseña incorrecta');
+                return back()->with('fail', 'Contraseña incorrecta');
             }
         }
         

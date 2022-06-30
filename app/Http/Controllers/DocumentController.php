@@ -56,6 +56,8 @@ class DocumentController extends Controller
         $post->category = strip_tags($request->input('categoria'));
         $post->comment = strip_tags($_POST[ 'comment' ]);
 
+        
+
         $post->save();
 
 

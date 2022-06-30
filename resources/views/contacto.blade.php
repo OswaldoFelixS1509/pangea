@@ -10,6 +10,7 @@
         <div class="txtCorreo" id="txtCorreo">
             @if(Session::get('success'))
             <div class="alert">
+                <br>
                 {{Session::get('success')}}
             </div>
 

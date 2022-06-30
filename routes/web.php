@@ -32,6 +32,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
       
     
     Route::get('/admin/control', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('admin/{user}/delete', [AdminController::class, 'destroyUser'])->name('admin.destroyUser');
     Route::get('/admin/perfil', [AdminController::class, 'profile'])->name('admin.profile');
     Route::get('/admin/actualizar-datos', [AdminController::class, 'editProfile'])->name('admin.editProfile');
     Route::get('/admin/contacto', [ContactoController::class, 'index'])->name('admin.contact');

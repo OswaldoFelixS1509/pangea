@@ -1,18 +1,37 @@
-@extends('admin/layout_admin')
+@extends('user/layout_user')
 
 @section('title', 'Perfil')
 
 @section('content')
+
 <div class="contieneDatos">
 <h1 style="font-size:2em; ">Mi perfil</h1><br>
-    <label>Nombre de usuario:</label>
-    <label> <i class="material-icons md-48">email</i>{{$user['username']}}</label>
-    <label>Nombre completo:<img src="{{url('images/Mesa de trabajo 5.png')}}" style="float:left;width:.5in;height:.5in"></label>
-    <label>{{$user['name']}}</label>
-    <label>Correo electronico:<img src="{{url('images/Mesa de trabajo 5.png')}}" style="float:left;width:.5in;height:.5in"></label>
-    <label>{{$user['email']}}</label>
-    <label>Mis fotos:<img src="{{url('images/Mesa de trabajo 5.png')}}" style="float:left;width:.5in;height:.5in"></label>
+        <label><i class="material-icons md-48 profile">account_box</i>Nombre de usuario:</label>
+        <label> {{$user['username']}}</label>
     
+     
+        <label><i class="material-icons md-48 profile">person</i>Nombre completo:</label>
+        <label>{{$user['name']}}</label>
+    
+    
+    <label><i class="material-icons md-48 profile">mail</i>Correo electronico:</label>
+    <label>{{$user['email']}}</label>
+    <div class="contienePerfil">
+    <a href="{{ route('admin.editProfile')}}"> <button type="button" class="btn btn-warning">Actualizar datos</button> </a>
+    </div>
+    <br>
+    <label><i class="material-icons md-48 profile">photo_camera</i>Mis fotos:</label>
+    <div class="contieneFotos">
+       
+            @foreach($documentos as $documento)
+                @foreach($imagenes[$loop->index] as $imagen)
+                    <img src="{{ asset('storage/files/users/' . Session::get('Slug') . '/'. $documento['id'] . '/' .$imagen['fileName'])}}" class="profileImage" alt="">
+                    <br>
+                @endforeach
+            
+            @endforeach
+        
+    </div>
 </div>
 <br>
 

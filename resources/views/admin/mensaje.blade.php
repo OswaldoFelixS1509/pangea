@@ -22,7 +22,7 @@
     </div>
     <div class="contieneMensaje">
         <label>Mensaje</label> <br>
-        {{$mensaje->mensaje}}
+        <pre> {{$mensaje->mensaje}} </pre> 
     </div>
 </div>
 

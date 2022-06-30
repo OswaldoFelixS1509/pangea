@@ -1,0 +1,12 @@
+
+.contieneArchivos{
+    width: 100%;
+    height: fit-content;
+    padding: 0;
+    overflow: hidden;
+}
+
+.docImage{
+    width: 400px;
+    height: 400px;
+}

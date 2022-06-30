@@ -10,6 +10,7 @@
 
 @if(Session::get('fail'))
     <div class="failalert">
+        <br>
       {{Session::get('fail')}}
     </div>
     <br>

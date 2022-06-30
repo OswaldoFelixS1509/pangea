@@ -61,7 +61,7 @@
       <br>
     @enderror
     <label for="comment">Comentarios:</label>
-    <textarea name="comment" id="comment" class="ck-content" value="{{old('comment')}}" cols="30" rows="10"></textarea>
+    <textarea name="comment" id="comment" style="white-space: pre-wrap;" class="txtInputArea" value="{{old('comment')}}" cols="30" rows="10"></textarea>
 
     <button class="btnSubmit">Subir archivos </button>
 
@@ -71,23 +71,4 @@
 
 
 
-@endsection
-
-@section('js')
-<script>
-    ClassicEditor
-    .create( document.querySelector( '#comment' ), {
-        language: 'es',
-        toolbar: [ 
-        'fontfamily', 'fontsize', '|',
-         'bold', 'italic', 'link', '|',
-          'undo', 'redo'],
-    } )
-    .then( editor => {
-        console.log( editor );
-    } )
-    .catch( error => {
-        console.error( error );
-    } );
-</script>
 @endsection

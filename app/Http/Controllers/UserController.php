@@ -111,8 +111,15 @@ class UserController extends Controller
 
     function perfil(){
         $user = User::where('id', session()->get('LoggedUser'))->first();
-
-        return view('user.editProfile', compact('user'));
+        $documentos = Post::where([
+            ['category', 'Imagenes'],
+            ['user_id', session()->get('LoggedUser')]
+        ])->get();
+        
+        foreach($documentos as $documento){
+            $imagenes[] = Documento::where('post_id', $documento->id)->get();
+        }
+        return view('user.profile', compact(['user', 'documentos', 'imagenes']));
     }
 
     function showDocument($request){
@@ -237,7 +244,6 @@ class UserController extends Controller
         $user->save();
        
     }
-
 
 
 }

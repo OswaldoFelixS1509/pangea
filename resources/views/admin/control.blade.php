@@ -42,10 +42,7 @@
                 </td>
                 
                 <td>
-                    <form> @csrf
-                    <input type="submit" class="delete" value="Eliminar">
-                        </form>
-               
+                   <a href="{{ route('admin.destroyUser', $user)}}"><input type="submit" class="delete" value="Eliminar"> </a> 
                 </td>
                 <td>
                  <a href="{{ route('admin.documents', $user)}}"><input type="button" value="Documentación"> </a>

@@ -14,7 +14,7 @@ class ContactoController extends Controller
      */
     public function index()
     {
-        $mensajes = Contacto::orderBy('leido', 'asc')->paginate(15);
+        $mensajes = Contacto::orderBy('leido', 'asc')->orderBy('created_at', 'desc')->paginate(15);
         return view('admin.contacto', compact('mensajes'));
     }
 
@@ -36,7 +36,7 @@ class ContactoController extends Controller
         $contacto->correo = strip_tags($request->input('email'));
         $contacto->telefono = strip_tags($request->input('telefono'));
         $contacto->nombre = strip_tags($request->input('nombre'));
-        $contacto->mensaje = strip_tags($request->input('mensaje'));
+        $contacto->mensaje =  strip_tags($request->input('mensaje'));
         $contacto->leido = false;
 
         $contacto->save();

@@ -9,6 +9,7 @@
         <title>@yield('title')</title>
         <link rel="stylesheet" type="text/css" href="{{url('css/layoutuser.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/content-styles.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url('css/documentoUser.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/layout.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/forms.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url('css/aboutUs.css')}}">

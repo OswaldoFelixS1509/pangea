@@ -13,10 +13,10 @@
         </div>
         <br>
     @endif
-    
+    <label class="title">Mensajes de contacto</label> 
     @if(count($mensajes) > 1)
         <table>
-            <caption>Mensajes de contacto</caption>
+            
             
             <tr>
         <td>

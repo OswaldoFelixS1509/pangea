@@ -14,6 +14,7 @@ class ContactoController extends Controller
      */
     public function index()
     {
+        //Muestra la lista de mensajes enviados por los usuarios
         $mensajes = Contacto::orderBy('leido', 'asc')->orderBy('created_at', 'desc')->paginate(15);
         return view('admin.contacto', compact('mensajes'));
     }
@@ -27,6 +28,7 @@ class ContactoController extends Controller
      */
     public function store(Request $request)
     {
+        //Valida que se cumplas los campos, posteriormente guarda en la BD
         $request->validate([
             'email' => 'required|email',
             'telefono' => 'required',
@@ -48,7 +50,7 @@ class ContactoController extends Controller
     public function show(Contacto $mensaje)
     {
         
-
+        //Muestra un mensaje en la BD y actualiza el estado del mensaje a leido
         $mensaje->correo = $mensaje->correo;
         $mensaje->telefono = $mensaje->telefono;
         $mensaje->nombre = $mensaje->nombre;
@@ -62,6 +64,7 @@ class ContactoController extends Controller
   
     public function unseen(Contacto $mensaje)
     {
+        //Actualiza el estado del mensaje a no leido
         $mensaje->correo = $mensaje->correo;
         $mensaje->telefono = $mensaje->telefono;
         $mensaje->nombre = $mensaje->nombre;
@@ -74,6 +77,7 @@ class ContactoController extends Controller
   
     public function destroy($id)
     {
+        //Elimina el mensaje
         Contacto::where('id', $id)->delete();
         return back()->with('success', 'Documento eliminado con exito!');
     }

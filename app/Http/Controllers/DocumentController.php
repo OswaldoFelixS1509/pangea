@@ -39,7 +39,7 @@ class DocumentController extends Controller
     }
 
     function store(User $user, Request $request){
-
+        //Guarda un nuevo post y todos sus documentos 
         $request->validate([
             'titulo' => 'required',
             'categoria' => 'required',
@@ -55,18 +55,11 @@ class DocumentController extends Controller
         $post->slug = Str::slug(strip_tags($request->input('titulo')));
         $post->category = strip_tags($request->input('categoria'));
         $post->comment = strip_tags($_POST[ 'comment' ]);
-
-        
-
         $post->save();
 
-
-
         $maxSize = (int)ini_get('upload_max_filesize') * 10240;
-
         $files = $request->file('archivos');
 
-        
         foreach($files as $file){
             $filename = Str::slug($file->getClientOriginalName(), '-') . '.' . $file->getClientOriginalExtension();
             if(Storage::putFileAs('/files/users/'.$user->slug.'/'. $post->id .'/', $file, $filename))
@@ -75,21 +68,15 @@ class DocumentController extends Controller
                     'post_id' => $post->id, 
                     'filename' => $filename,
                     'type' => $file->getClientOriginalExtension()
-    
                 ]);
             }
-            
-
         }
-
         return back()->with('success', 'Archivos guardado exitosamente!');
     }
 
     function destroy(Request $request, User $user, $documento){
-        //documento == post_id
+        //Elimina el post y todos los archivos que le corresponde
         $documentos = Documento::where('post_id', $documento)->get();
-
-        //Elimina los archivos de la carpeta
         foreach($documentos as $file){
             unlink(public_path('storage/files/users/'. $user->slug. '/' . $file->post_id .'/' .  $file->fileName));
             File::deleteDirectory(public_path('storage/files/users/'. $user->slug. '/' . $file->post_id ));

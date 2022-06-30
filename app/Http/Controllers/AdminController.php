@@ -15,16 +15,16 @@ class AdminController extends Controller
 {
     function index()
     {
-
+        //Muestra la tabla del control de usuarios ordenado por alfabeto
         $users = User::orderBy('name', 'asc')->paginate(15);
         return view('admin.control', 
         compact('users'));
 
-      //->where('user_type', 'user') for selecting a type of uer
     }
 
     function profile()
     {
+        //Llama los datos del usuario y muestra el perfil
         $user = User::where('id', session()->get('LoggedUser'))->first();
         return view('admin.profile', compact('user'));
     }
@@ -32,17 +32,19 @@ class AdminController extends Controller
     
     function edit(User $user){
    
-
+        //Muestra la pantalla para editar datos
         return view('admin.editUser', compact('user'));
     }
 
     function editProfile()
     {
+        //Muestra la pantalla para editar el perfil
         $user = User::where('id', session()->get('LoggedUser'))->first();
         return view('admin.editProfile', compact('user'));
     }
 
     function destroyUser(User $user){
+        //Borra un usuario de la BD, elimina todos sus archivos y por último regresa al control de usuarios
         $post = Post::where('user_id', $user->id)->get();
         if(count($post) > 0)
         {

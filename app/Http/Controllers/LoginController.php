@@ -12,6 +12,7 @@ class LoginController extends Controller
 {
     public function show()
     {
+        //Muestra el formulario de login
         return view('login');
     }
 
@@ -19,10 +20,7 @@ class LoginController extends Controller
     {
         if(session()->has('LoggedUser'))
         {
-            // session()->pull('LoggedUser');
-            // session()->pull('Permission');
-            // session()->pull('ProfilePicture');
-            // session()->pull('Slug');
+            // Elimina los datos de la sesión y te redirige al formulario de login
             session()->flush();
             return redirect()->route('login.index');
         }
@@ -30,6 +28,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        //Valida campos, revisa que el usuario/contraseña esta correcto y asigna datos de sesión
         $request->validate([
             'usuario' => 'required',
             'contraseña' => 'required'
@@ -50,8 +49,6 @@ class LoginController extends Controller
                 $request->session()->put('Permission', $userInfo->user_type);
                 $request->session()->put('Slug', $userInfo->slug);
                 $request->session()->put('ProfilePicture', $userInfo->profile_picture);
-                
-               
                 if($userInfo->user_type == "admin")
                 {
                     return redirect()->route('admin.index');
@@ -59,7 +56,6 @@ class LoginController extends Controller
                 else{
                     return redirect()->route('user.index');
                 }
-                
             }
             else{
                 return back()->with('fail', 'Contraseña incorrecta');

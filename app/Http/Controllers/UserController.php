@@ -22,6 +22,7 @@ class UserController extends Controller
     */
     function index(Request $request)
     {
+        //Muestra todos los documentos en una tabla dependiende de la categoria
         $posts = Post::where([
             'user_id' => session()->get('LoggedUser'),
             'category' => 'Itinerario'
@@ -123,7 +124,7 @@ class UserController extends Controller
     }
 
     function showDocument($request){
-
+        //Muestra los detalles de un post junto con todos los archivos correspondientes
         $post = Post::where([
             'id' => $request,
             'user_id' => session()->get('LoggedUser'), 
@@ -160,7 +161,7 @@ class UserController extends Controller
     
     function checkUpdate(User $user, Request $request )
     {
-        
+        //Revisa si es posible guardar los datos del usuario y posteriormente los guarda en la BD
         $request->validate([
             'nombre' => 'required',
             'usuario' => 'required',
@@ -213,7 +214,7 @@ class UserController extends Controller
 
     function update(User $user, Request $request )
     {
-        
+        //Guarda los nuevos datos del usuario
         $file = $request->file('archivos');
 
         if($request->file('archivos')!=null)

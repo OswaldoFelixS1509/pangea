@@ -8,12 +8,13 @@ class HeaderController extends Controller
 {
     public function index()
     {   
-        //Change layout_pangea for index file 
+        //Muestra el index de la página 
         //
         return view('index');
     }
     public function contact()
     {
+        //Muestra el formulario de contacto
         return view('contacto');
     }
 }

@@ -16,36 +16,10 @@ class RegisterController extends Controller
      */
     public function index()
     {
+        //Muestra el formulario de registro de usuarios
         return view('admin/register');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         return view('admin.register');
@@ -53,8 +27,7 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-        //register(RegisterRequest $request) for mass assigment
-        //$user = User::create($request->validated());
+        //Valida y guarda un nuevo usuario en la BD
 
         $request->validate([
             'nombre' => 'required',
@@ -73,44 +46,10 @@ class RegisterController extends Controller
         $usuario->password = strip_tags($request->input('contraseña'));
         $usuario->user_type = strip_tags($request->input('userType'));
 
-        $usuario->save();
-
-        
+        $usuario->save();        
         return back()->with('success', 'Usuario registrado con exito'); 
-        //redirect()->route('register.index')
+       
 
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }

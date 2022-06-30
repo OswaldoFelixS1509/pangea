@@ -3,6 +3,7 @@
 @section('title', 'Pangea')
 
 @section('content')
+<img src="{{asset('images/pangea_collage.jpg')}}"  style="float:down;width:100%;height:100%;padding-top:5px">
     <div id="aboutUs" class="aboutUs" ><div id="imagen" class="imagen" ><img src="{{url('images/Mesa de trabajo 5.png')}}" style="float:right;width:4in;height:4in;"></div><font size=5em><h1><b>¿Quienes somos?</b></h1></font>
     <a> <font size=5em>PANGEA es una empresa que nace en Septiembre 2017 con el interés de demostrar que existen mil maneras de viajar. 
     Nuestro objetivo es exponerte las diferentes opciones que existen en el mundo para transportarnos, alojarnos y tomar un tour, convirtiendo a cada uno de nuestros viajes en una experiencia ÚNICA.</font></a>
@@ -27,7 +28,7 @@ de convertir su viaje en algo increíble.</a>
 •Agenda y trámite de pasaporte mexicano.<br> 
 •Agenda y trámite de visa estadounidense y otros países</a></font><div id="imagen3" class="imagen3" > <img src="{{url('images/Mesa de trabajo 5.png')}}"  style="float:down;width:4in;height:4in;"></div></div>
     
-<img src="{{asset('images/pangea_collage.jpg')}}"  style="float:down;width:100%;height:100%;padding-top:5px">
+
 
 
 @endsection

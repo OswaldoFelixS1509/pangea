@@ -116,7 +116,7 @@ class UserController extends Controller
             ['category', 'Imagenes'],
             ['user_id', session()->get('LoggedUser')]
         ])->get();
-        
+        $imagenes = [];
         foreach($documentos as $documento){
             $imagenes[] = Documento::where('post_id', $documento->id)->get();
         }

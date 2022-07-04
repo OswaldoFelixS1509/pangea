@@ -9,7 +9,7 @@
         </div>
         <div class="datosAutor">
             <h2 style="font-size:1.5em; font-weight: bold; text-align: left;">Comentarios:</h2><br>
-            <p> <pre> {{  $post['comment']}}</pre> </p>
+            <p> <pre> {{  $post['comment'] $post}}</pre> </p>
         </div>
         <div class="datosAutor">
             <h2 style="font-size:1.5em; font-weight: bold; text-align: left;">Archivos:</h2><br>
@@ -21,9 +21,16 @@
                 
                 @if($archivo['type'] == 'pdf' ||  $archivo['type'] == 'docx')
                     <iframe src="{{ asset('storage/files/users/' . Session::get('Slug') . '/'. $post['id']  . '/' .$archivo['fileName'])}}" width="100%" height="600px" class="frame" frameborder="0"></iframe>
-                @else
+                @endif  
+                @if($archivo['type'] == 'mp4' ||  $archivo['type'] == 'ogg')
+                        <video src="{{ asset('storage/files/users/' . Session::get('Slug') . '/'. $post['id']  . '/' .$archivo['fileName'])}}" controls>
+                        </video>  
+                @endif   
+                @if($archivo['type'] == 'png' ||  $archivo['type'] == 'jpg' ||  $archivo['type'] == 'jpeg' ||  $archivo['type'] == 'gif' ||  $archivo['type'] == 'svg')  
                     <img src="{{ asset('storage/files/users/' . Session::get('Slug') . '/'. $post['id']  . '/' .$archivo['fileName'])}}" class="docImage" alt="">
-                @endif         
+                @endif
+                <a class="btn btn-primary" href="{{ route('user.download', $post['id'] ) }}" role="button">Descargar archivo</a>
+                <br>
             @endforeach
         </div>
     </div>

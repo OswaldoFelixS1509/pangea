@@ -110,6 +110,28 @@ class UserController extends Controller
         }
     }
 
+    function tours(){
+        $posts = Post::where([
+            'user_id' => session()->get('LoggedUser'),
+            'category' => 'Tours'
+            ])->get();
+        $autor = [];
+        $categoria = "Tours y traslados";
+        foreach($posts as $post)
+        {
+            $autor[] = User::where('id', $post->admin_id)->value('name');
+        }
+        if($autor > 0)
+        {
+            return view('user.itinerario', compact(['posts', 'autor', 'categoria']));
+        }
+        else
+        {
+            return view('user.itinerario', compact(['posts']));
+        }
+    }
+
+
     function perfil(){
         $user = User::where('id', session()->get('LoggedUser'))->first();
         $documentos = Post::where([
@@ -129,7 +151,7 @@ class UserController extends Controller
             'id' => $request,
             'user_id' => session()->get('LoggedUser'), 
         ])->first();
-
+        
         switch($post->category){
             case 'PasesAbordar':
                 {
@@ -141,6 +163,11 @@ class UserController extends Controller
                     $categoria = 'Información covid';
                     break;
                 }
+            case 'Tours':
+                {
+                    $categoria = 'Tours y traslados';
+                    break;
+                }
             default:
             {
                 $categoria = $post->category;
@@ -148,12 +175,9 @@ class UserController extends Controller
             }
 
         }
-
         $categoria = $post->category;
         $autor = User::where('id', $post->admin_id)->first();
         $archivos = Documento::where('post_id', $request)->get();
-        
-       
 
         return view('user.documento', compact(['archivos', 'post', 'autor', 'categoria']));
     }
@@ -209,6 +233,13 @@ class UserController extends Controller
                 
                 return back()->with('success', 'Datos guardados con exito');  
             
+    }
+
+    function editProfile()
+    {
+        //Muestra la pantalla para editar el perfil
+        $user = User::where('id', session()->get('LoggedUser'))->first();
+        return view('user.editProfile', compact('user'));
     }
 
 

@@ -44,6 +44,7 @@
         <option value="PasesAbordar" >Pases de abordar</option>
         <option value="InfoCovid" >Información Covid</option>
         <option value="Imagenes" >Imagenes</option>
+        <option value="Tours" >Tours y traslados</option>
     </select>
     @error('categoria')
         <div class="form-error"> 

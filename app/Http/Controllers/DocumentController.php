@@ -93,4 +93,13 @@ class DocumentController extends Controller
        
     }
 
+    function download($post){
+        return $post;
+        $path = '/files/users/'. session()->get('Slug'). '/'. $post->id . '/'. $archivo->fileName;
+        Storage::download($path);
+        return back();
+    }
+
+
+
 }

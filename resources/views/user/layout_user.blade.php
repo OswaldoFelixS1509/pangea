@@ -45,27 +45,41 @@
                             <img src="{{asset('storage/images/users/'.Session::get('Slug').'/'.Session::get('ProfilePicture')) }}">
                         @endif
             </div>
-                <li>
-                    <div class="menuButton">
-                    <a href="{{route('user.index')}}">Itinerario</a>
-                    </div>
-                </li>
-
-                <li>
-                    <a href="{{route('user.calendario')}}">Calendario</a>
-                </li>
-                <li>
-                    <a href="{{route('user.pasesAbordar')}}">Pases de abordar</a>
-                </li>
+                <a href="{{route('user.index')}}">
+                    <li>
+                        <div class="menuButton">
+                        Itinerario
+                        </div>
+                    </li>
+                </a>
+                <a href="{{route('user.calendario')}}">
+                    <li>
+                        Calendario
+                    </li>
+                </a>
+                <a href="{{route('user.pasesAbordar')}}">
+                    <li>
+                        Pases de abordar
+                    </li>
+                </a>
                 <li>
                     <a href="{{route('user.infoCovid')}}">Info covid</a>
                 </li>
-                <li>
-                    <a href="{{route('user.profile')}}">Perfil</a>
-                </li>
-                <li>
-                    <a class="cerrar" href="{{ route('login.logout')}}">Cerrar sesión </a>
-                </li>
+                <a href="{{route('user.tours')}}">
+                    <li>
+                        Tours y traslados
+                    </li>
+                </a>
+                <a href="{{route('user.profile')}}">
+                    <li>
+                        Perfil
+                    </li>
+                </a>
+                <a class="cerrar" href="{{ route('login.logout')}}">
+                    <li>
+                        Cerrar sesión 
+                    </li>
+                </a>
             </ul>
             </aside>
             <section>

@@ -17,7 +17,7 @@
     <label><i class="material-icons md-48 profile">mail</i>Correo electronico:</label>
     <label>{{$user['email']}}</label>
     <div class="contienePerfil">
-    <a href="{{ route('admin.editProfile')}}"> <button type="button" class="btn btn-warning">Actualizar datos</button> </a>
+    <a href="{{ route('user.editProfile')}}"> <button type="button" class="btn btn-warning">Actualizar datos</button> </a>
     </div>
     <br>
     <label><i class="material-icons md-48 profile">photo_camera</i>Mis fotos:</label>

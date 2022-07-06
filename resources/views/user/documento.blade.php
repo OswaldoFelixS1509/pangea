@@ -3,6 +3,9 @@
 @section('title', 'Documentos')
 
 @section('content')
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Belleza&family=Cormorant:wght@500;600;700&display=swap" rel="stylesheet">
     <div class="contieneDatos">
         <div class="datosAutor">
             <h1 style="font-size:2em; font-weight: bold; text-align: center;">Documentación</h1><br>

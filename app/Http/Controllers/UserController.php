@@ -250,8 +250,6 @@ class UserController extends Controller
 
         if($request->file('archivos')!=null)
         {
-            
-            
             if($user->profile_picture != 'user_picture.png'){
                 $image_path = public_path('storage/images/users/'. $user->slug).'/'.$user->profile_picture;
                 unlink($image_path);

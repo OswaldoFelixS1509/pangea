@@ -3,7 +3,9 @@
 @section('title', 'Contacto')
 
 @section('content')
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Belleza&family=Cormorant:wght@500;600;700&display=swap" rel="stylesheet">
 
     <div class="contactForm" id="contactForm">
         <p>Por favor llena este formulario para ponernos en contacto contigo</p>

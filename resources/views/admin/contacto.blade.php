@@ -3,7 +3,9 @@
 @section('title', 'Mensajes de contacto')
 
 @section('content')
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Belleza&family=Cormorant:wght@500;600;700&display=swap" rel="stylesheet">
 <div class="contieneDatos">
 
     
@@ -14,7 +16,7 @@
         <br>
     @endif
     <label class="title">Mensajes de contacto</label> 
-    @if(count($mensajes) > 1)
+    @if(count($mensajes) > 0)
         <table>
             
             
@@ -73,8 +75,6 @@
         {{$mensajes->links()}}
 
         @else
-        <p class="title">Mensajes de contacto</p>
-        <br>
         <p width="100%" class="emptyTable">Por el momento nadie ha enviado un mensaje</p>
         
     @endif

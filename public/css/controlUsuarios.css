@@ -45,12 +45,12 @@ td
 
 .msg{
     font-size: 1em;
+    font-family: 'Belleza', sans-serif;
 }
 
 
 
 .datosUsuario{
-    
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -60,6 +60,7 @@ td
 .datosUsuario p{
     padding-left: 1rem;
     font-size: 1em;
+    font-family: 'Belleza', sans-serif;
 }
 
 .imgTabla{
@@ -69,13 +70,16 @@ td
 
 table caption{
     font-size: 2em;
+    font-family: 'Belleza', sans-serif;
 }
 
 .contieneDatos p{
     font-size: 1em;
+    font-family: 'Belleza', sans-serif;
 }
 
 .imgUser{
+    font-family: 'Belleza', sans-serif;
     width: 1rem;
 }
 

@@ -131,6 +131,7 @@ section {
     display: flex;
     justify-content: center;
     font-family: 'Belleza', sans-serif;
+    background-color: rgba(221, 207, 177, 0.35);
 }
 
 section2 {

@@ -32,8 +32,8 @@
 				<a href="#workFlow">Servicios</a>
 				<a href="{{route('header.contact')}}">Contacto</a>
                 @else
-                <a href="{{ route('header.index')}}#aboutUs">¿Quienes somos?</a>
-				<a href="{{ route('header.index')}}#service">Servicio</a>
+                <a href="{{ route('header.index')}}#aboutUs">¿Quiénes somos?</a>
+				<a href="{{ route('header.index')}}#service">Servicios</a>
 				<a href="{{route('header.contact')}}">Contacto</a>
                 @endif
                 @if(Session::get('LoggedUser'))
@@ -61,7 +61,7 @@
                 </div>
                 <div class="footerright" id="footerleft">
                     <a href="https://www.facebook.com/PangeaTravelConsulting/"><img src="{{url('images/facebook.png')}}" style="float:left;width:.75in;height:.75in;  padding-top: 10px; padding-left:10%;"></a>
-                    <a href="mailto:felixsanchezoswaldo@gmail.com"><div id="imagencorreo" class="imagencorreo" ><img src="{{url('images/correo.png')}}" style="float:right;width:.75in;height:.75in;  padding-right:10%; padding-top: 10px;"></a>
+                    <a href="mailto:felixsanchezoswaldo@gmail.com?&subject=Reporte%20de%20errores"><div id="imagencorreo" class="imagencorreo" ><img src="{{url('images/correo.png')}}" style="float:right;width:.75in;height:.75in;  padding-right:10%; padding-top: 10px;"></a>
                 </div>
         </footer>
 

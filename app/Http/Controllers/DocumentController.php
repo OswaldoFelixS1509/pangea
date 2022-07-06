@@ -56,11 +56,16 @@ class DocumentController extends Controller
         $post->category = strip_tags($request->input('categoria'));
         $post->comment = strip_tags($_POST[ 'comment' ]);
         $post->save();
-
-        $maxSize = (int)ini_get('upload_max_filesize') * 10240;
         $files = $request->file('archivos');
 
+        $path = public_path('/storage/files/users/'.$user->slug.'/'. $post->id );
+
+        if(!File::isDirectory($path)){
+        File::makeDirectory($path, 0777, true, true);
+        }
+
         foreach($files as $file){
+            
             $filename = Str::slug($file->getClientOriginalName(), '-') . '.' . $file->getClientOriginalExtension();
             if(Storage::putFileAs('/files/users/'.$user->slug.'/'. $post->id .'/', $file, $filename))
             {

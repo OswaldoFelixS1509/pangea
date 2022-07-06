@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Cormorant:wght@500;600;700&family=Zen+Maru+Gothic:wght@300&display=swap" rel="stylesheet">
-<div id="imagen" class="imagen" ><img src="{{asset('images/pangea_collage5.jpg')}}"  style="float:down;width:1481px;height:500px;padding-top:5px;padding-bottom:2.5px"></div>
+<div id="imagen" class="imagen" ><img src="{{asset('images/pangea_collage5.jpg')}}"  style="float:down;width:100%;height:500px;padding-top:5px;padding-bottom:2.5px"></div>
 <div id="imagen1" class="imagen1" ><img src="{{asset('images/pangea_collage4.jpg')}}"  style="float:down;width:100%;height:100%;padding-top:5px;padding-bottom:2.5px"></div>
 <div id="imagen1" class="imagen1" ><img src="{{asset('images/pangea_collage3.jpg')}}"  style="float:down;width:100%;height:100%;padding-top:5px;padding-bottom:2.5px"></div>
     <div id="aboutUs" class="aboutUs" ><div id="imagen" class="imagen" ><img src="{{url('images/avion.png')}}" style="float:right;width:4in;height:4in;"></div><font size=5em><h1><b>¿Quiénes somos?</b></h1></font>

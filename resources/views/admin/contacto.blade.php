@@ -16,7 +16,7 @@
         <br>
     @endif
     <label class="title">Mensajes de contacto</label> 
-    @if(count($mensajes) > 1)
+    @if(count($mensajes) > 0)
         <table>
             
             
@@ -75,8 +75,6 @@
         {{$mensajes->links()}}
 
         @else
-        <p class="title">Mensajes de contacto</p>
-        <br>
         <p width="100%" class="emptyTable">Por el momento nadie ha enviado un mensaje</p>
         
     @endif

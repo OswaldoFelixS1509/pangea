@@ -1,8 +1,7 @@
 header {
 	width:100%; /* Establecemos que el header abarque el 100% del documento */
 	overflow:hidden; /* Eliminamos errores de float */
-	background: url("../images/texture.png"), #545352;
-  background-blend-mode: multiply;
+	background: #545352;
   
 }
 
@@ -35,6 +34,7 @@ header nav a {
 	-webkit-transition:all 500ms ease;
 	-o-transition:all 500ms ease;
 	transition:all 500ms ease;
+  font-family: 'Cormorant', serif;
 }
 
 header nav a:hover {
@@ -113,7 +113,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    background-image: url("../images/background.jpg");
+    background-color: #fff;
 }
 
 .logo
@@ -127,13 +127,12 @@ body{
     display: flex;
     flex-direction: column;
     height: fit-content;
-    margin-top: 70px;
+    margin-top: 5px;
     margin-bottom: 40px;
     align-items: center;
 }
 footer{
     background-color: #545352;
-    background-image: url("../images/texture.png");
     background-blend-mode: multiply;
     width: 100%;
     height: 120px;

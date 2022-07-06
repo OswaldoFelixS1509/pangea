@@ -58,11 +58,11 @@ class DocumentController extends Controller
         $post->save();
         $files = $request->file('archivos');
 
-        $path = public_path('/storage/files/users/'.$user->slug.'/'. $post->id );
+        // $path = public_path('/storage/files/users/'.$user->slug.'/'. $post->id );
 
-        if(!File::isDirectory($path)){
-        File::makeDirectory($path, 0777, true, true);
-        }
+        // if(!File::isDirectory($path)){
+        // File::makeDirectory($path, 0777, true, true);
+        // }
 
         foreach($files as $file){
             

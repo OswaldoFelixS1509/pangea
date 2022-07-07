@@ -190,7 +190,7 @@ class UserController extends Controller
             'nombre' => 'required',
             'usuario' => 'required',
             'email' => 'required|email',
-            'archivos' => 'nullable||mimes:jpeg,png,jpg,gif'
+            'archivos' => 'nullable|mimes:jpeg,png,jpg,gif'
         ]);
 
         if( !empty(strip_tags($request->input('contraseña'))) )
@@ -247,10 +247,11 @@ class UserController extends Controller
     {
         //Guarda los nuevos datos del usuario
         $file = $request->file('archivos');
-
+        $profile_picture = $user->profile_picture;
         if($request->file('archivos')!=null)
         {
-            if($user->profile_picture != 'user_picture.png'){
+            if($profile_picture != 'user_picture.png')
+            {
                 $image_path = public_path('storage/images/users/'. $user->slug).'/'.$user->profile_picture;
                 unlink($image_path);
             }

@@ -6,11 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Documento;
 use App\Models\Post;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
-use Illuminate\Filesystem\Filesystem;
+use Illuminate\Auth\Access\Response;
 
 class DocumentController extends Controller
 {
@@ -67,7 +66,7 @@ class DocumentController extends Controller
         foreach($files as $file){
             
             $filename = Str::slug($file->getClientOriginalName(), '-') . '.' . $file->getClientOriginalExtension();
-            if(Storage::putFileAs('/files/users/'.$user->slug.'/'. $post->id .'/', $file, $filename))
+            if(Storage::putFileAs('/public/files/users/'.$user->slug.'/'. $post->id .'/', $file, $filename))
             {
                 Documento::create([
                     'post_id' => $post->id, 
@@ -93,11 +92,19 @@ class DocumentController extends Controller
        
     }
 
-    function download($post){
-        return $post;
-        $path = '/files/users/'. session()->get('Slug'). '/'. $post->id . '/'. $archivo->fileName;
-        Storage::download($path);
-        return back();
+    function download(Request $request){
+        $file = Documento::where('id', $request->id)->first();
+        //dd($file);
+        $archivo = public_path().'/storage/files/users/'. session()->get('Slug') . '/' . $file->post_id . '/' . $file->fileName;
+        $headers = ['Content-Type: application/pdf'];
+        return response()->download($archivo, $file->fileName, $headers);
+        if (file_exists($archivo)) {
+            
+        } else {
+            echo('Archivo no encontrado.');
+        }
+        
+        
     }
 
 

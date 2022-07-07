@@ -12,7 +12,7 @@
         </div>
         <div class="datosAutor">
             <h2 style="font-size:1.5em; font-weight: bold; text-align: left;">Comentarios:</h2><br>
-            <p> <pre> {{  $post['comment'] $post}}</pre> </p>
+            <p> <pre> {{  $post['comment']}}</pre> </p>
         </div>
         <div class="datosAutor">
             <h2 style="font-size:1.5em; font-weight: bold; text-align: left;">Archivos:</h2><br>
@@ -32,7 +32,7 @@
                 @if($archivo['type'] == 'png' ||  $archivo['type'] == 'jpg' ||  $archivo['type'] == 'jpeg' ||  $archivo['type'] == 'gif' ||  $archivo['type'] == 'svg')  
                     <img src="{{ asset('storage/files/users/' . Session::get('Slug') . '/'. $post['id']  . '/' .$archivo['fileName'])}}" class="docImage" alt="">
                 @endif
-                <a class="btn btn-primary" href="{{ route('user.download', $post['id'] ) }}" role="button">Descargar archivo</a>
+                <a class="btn btn-primary" href="{{ route('user.download', ['id' => $archivo] ) }}" role="button">Descargar archivo</a>
                 <br>
             @endforeach
         </div>

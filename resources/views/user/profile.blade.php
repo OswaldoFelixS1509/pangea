@@ -28,8 +28,18 @@
        
             @foreach($documentos as $documento)
                 @foreach($imagenes[$loop->index] as $imagen)
-                    <img src="{{ asset('storage/files/users/' . Session::get('Slug') . '/'. $documento['id'] . '/' .$imagen['fileName'])}}" class="profileImage" alt="">
-                    <br>
+                    @if($imagen['type'] == 'mp4' ||  $imagen['type'] == 'ogg')
+                            <video src="{{ asset('storage/files/users/' . Session::get('Slug') . '/'. $documento['id']  . '/' .$imagen['fileName'])}}" controls>
+                            </video> 
+                            <a class="btn btn-primary" href="{{ route('user.download' ) }}" role="button">Descargar archivo</a>
+                            <br> 
+                    @endif   
+                    @if($imagen['type'] == 'png' ||  $imagen['type'] == 'jpg' ||  $imagen['type'] == 'jpeg' ||  $imagen['type'] == 'gif' ||  $imagen['type'] == 'svg')  
+                        <img src="{{ asset('storage/files/users/' . Session::get('Slug') . '/'. $documento['id']  . '/' .$imagen['fileName'])}}" class="docImage" alt="">
+                        <a class="btn btn-primary" href="{{ route('user.download' ) }}" role="button">Descargar archivo</a>
+                        <br>
+                    @endif
+                
                 @endforeach
             
             @endforeach

@@ -247,20 +247,19 @@ class UserController extends Controller
     {
         //Guarda los nuevos datos del usuario
         $file = $request->file('archivos');
-        $profile_picture = $user->profile_picture;
+        if($user->profile_picture != 'user_picture')
+        {
+            $this->deleteOldImage($user);
+        }
+        
         if($request->file('archivos')!=null)
         {
-            if($profile_picture != 'user_picture.png')
-            {
-                $image_path = public_path('storage/images/users/'. $user->slug).'/'.$user->profile_picture;
-                unlink($image_path);
-            }
             $filename = Str::slug($file->getClientOriginalName(), '-') . '.' . $file->getClientOriginalExtension();
             if($user->id == session()->get('LoggedUser'))
             {
                 session()->put('ProfilePicture', $filename); 
             }
-            if(Storage::putFileAs('/images/users/'.$user->slug.'/', $file, $filename))
+            if(Storage::putFileAs('/public/images/users/'.$user->slug.'/', $file, $filename))
             {
                 $user->profile_picture = $filename;
             }  
@@ -274,6 +273,16 @@ class UserController extends Controller
 
         $user->save();
        
+    }
+
+    function deleteOldImage(User $user){
+        if(session()->get('ProfilePicture') != 'user_picture.png')
+        {
+            $imagePath = public_path('storage/images/users/'. $user->slug.'/'.$user->profile_picture);
+            if(File::exists($imagePath)){
+            unlink($imagePath);
+            }
+        }
     }
 
 

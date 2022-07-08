@@ -278,7 +278,7 @@ class UserController extends Controller
     function deleteOldImage(User $user){
         if(session()->get('ProfilePicture') != 'user_picture.png')
         {
-            $imagePath = public_path('storage/public/images/users/'. $user->slug.'/'.$user->profile_picture);
+            $imagePath = public_path('storage/images/users/'. $user->slug.'/'.$user->profile_picture);
             if(File::exists($imagePath)){
             unlink($imagePath);
             }

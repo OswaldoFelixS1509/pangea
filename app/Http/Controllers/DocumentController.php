@@ -72,7 +72,7 @@ class DocumentController extends Controller
         foreach($files as $file){
             
             $filename = Str::slug($file->getClientOriginalName(), '-') . '.' . $file->getClientOriginalExtension();
-            if(Storage::putFileAs('files/users/'.$user->slug.'/'. $post->id .'/', $file, $filename))
+            if(Storage::putFileAs('/public/files/users/'.$user->slug.'/'. $post->id .'/', $file, $filename))
             {
                 Documento::create([
                     'post_id' => $post->id, 
@@ -88,8 +88,8 @@ class DocumentController extends Controller
         //Elimina el post y todos los archivos que le corresponde
         $documentos = Documento::where('post_id', $documento)->get();
         foreach($documentos as $file){
-            unlink(public_path('storage/files/users/'. $user->slug. '/' . $file->post_id .'/' .  $file->fileName));
-            File::deleteDirectory(public_path('storage/files/users/'. $user->slug. '/' . $file->post_id ));
+            unlink(public_path('storage/public/files/users/'. $user->slug. '/' . $file->post_id .'/' .  $file->fileName));
+            File::deleteDirectory(public_path('storage/public/files/users/'. $user->slug. '/' . $file->post_id ));
         }
 
         Post::where('id', $documento)->delete();

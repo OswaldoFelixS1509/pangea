@@ -56,6 +56,8 @@ Route::group(['middleware'=>['AuthCheck']], function(){
     Route::get('/user/tours-y-traslados', [UserController::class, 'tours'])->name('user.tours');
     Route::get('/user/descargar-archivo', [DocumentController::class, 'download'])->name('user.download');
     Route::get('/user/perfil', [UserController::class, 'perfil'])->name('user.profile');
+    Route::get('/user/perfil/{user}/subir-fotos', [DocumentController::class, 'createImage'])->name('user.uploadImage');
+    Route::post('/user/perfil/{user}/subir-fotos', [DocumentController::class, 'store'])->name('user.uploadImage');
     Route::get('/user/actualizar-datos', [UserController::class, 'editProfile'])->name('user.editProfile');
 
     Route::get('/user/posts/{posts}', [UserController::class, 'showDocument'])->name('user.showDocument');

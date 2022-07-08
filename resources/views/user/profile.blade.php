@@ -20,7 +20,8 @@
     <label><i class="material-icons md-48 profile">mail</i>Correo electronico:</label>
     <label>{{$user['email']}}</label>
     <div class="contienePerfil">
-    <a href="{{ route('user.editProfile')}}"> <button type="button" class="btn btn-warning">Actualizar datos</button> </a>
+    <a href="{{ route('user.editProfile')}}" class="btn btn-warning"> Actualizar datos</a>
+    <a class="btn btn-success" href="{{ route('user.uploadImage', [$user]) }}" role="button">Subir fotos</a>
     </div>
     <br>
     <label><i class="material-icons md-48 profile">photo_camera</i>Mis fotos:</label>
@@ -36,7 +37,7 @@
                     @endif   
                     @if($imagen['type'] == 'png' ||  $imagen['type'] == 'jpg' ||  $imagen['type'] == 'jpeg' ||  $imagen['type'] == 'gif' ||  $imagen['type'] == 'svg')  
                         <img src="{{ asset('storage/files/users/' . Session::get('Slug') . '/'. $documento['id']  . '/' .$imagen['fileName'])}}" class="docImage" alt="">
-                        <a class="btn btn-primary" href="{{ route('user.download' ) }}" role="button">Descargar archivo</a>
+                        <a class="btn btn-primary" href="{{ route('user.download', ['id' => $imagen] ) }}" role="button">Descargar archivo</a>
                         <br>
                     @endif
                 

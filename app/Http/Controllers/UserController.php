@@ -259,7 +259,7 @@ class UserController extends Controller
             {
                 session()->put('ProfilePicture', $filename); 
             }
-            if(Storage::putFileAs('/public/images/users/'.$user->slug.'/', $file, $filename))
+            if(Storage::putFileAs('/images/users/'.$user->slug.'/', $file, $filename))
             {
                 $user->profile_picture = $filename;
             }  

@@ -21,7 +21,7 @@
         <div class="contieneArchivos">
             @foreach($archivos as $archivo)
                 <label style="font-size:1.5em; font-weight: bold;">{{$archivo['fileName']}}</label>
-                
+                <a class="btn btn-primary" href="{{ route('user.download', ['id' => $archivo] ) }}" role="button">Descargar archivo</a>
                 @if($archivo['type'] == 'pdf' ||  $archivo['type'] == 'docx')
                     <iframe src="{{ asset('storage/files/users/' . Session::get('Slug') . '/'. $post['id']  . '/' .$archivo['fileName'])}}" width="100%" height="600px" class="frame" frameborder="0"></iframe>
                 @endif  
@@ -32,8 +32,8 @@
                 @if($archivo['type'] == 'png' ||  $archivo['type'] == 'jpg' ||  $archivo['type'] == 'jpeg' ||  $archivo['type'] == 'gif' ||  $archivo['type'] == 'svg')  
                     <img src="{{ asset('storage/files/users/' . Session::get('Slug') . '/'. $post['id']  . '/' .$archivo['fileName'])}}" class="docImage" alt="">
                 @endif
-                <a class="btn btn-primary" href="{{ route('user.download', ['id' => $archivo] ) }}" role="button">Descargar archivo</a>
                 <br>
+                
             @endforeach
         </div>
     </div>

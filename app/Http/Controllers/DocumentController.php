@@ -9,7 +9,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
-use Illuminate\Auth\Access\Response;
+use Illuminate\Support\Facades\Response as FacadeResponse;
 
 class DocumentController extends Controller
 {
@@ -36,6 +36,12 @@ class DocumentController extends Controller
         //Muestra el formulario para subir un nuevo documento
         return view('admin.nuevo-documento', compact('user'));
     }
+
+    function createImage(User $user)
+    {
+        return view('user.subir-fotos', compact('user'));
+    }
+
 
     function store(User $user, Request $request){
         //Guarda un nuevo post y todos sus documentos 
@@ -66,7 +72,7 @@ class DocumentController extends Controller
         foreach($files as $file){
             
             $filename = Str::slug($file->getClientOriginalName(), '-') . '.' . $file->getClientOriginalExtension();
-            if(Storage::putFileAs('/public/files/users/'.$user->slug.'/'. $post->id .'/', $file, $filename))
+            if(Storage::putFileAs('files/users/'.$user->slug.'/'. $post->id .'/', $file, $filename))
             {
                 Documento::create([
                     'post_id' => $post->id, 
@@ -94,10 +100,13 @@ class DocumentController extends Controller
 
     function download(Request $request){
         $file = Documento::where('id', $request->id)->first();
-        //dd($file);
+        
         $archivo = public_path().'/storage/files/users/'. session()->get('Slug') . '/' . $file->post_id . '/' . $file->fileName;
-        $headers = ['Content-Type: application/pdf'];
-        return response()->download($archivo, $file->fileName, $headers);
+        
+        $headers = ['Content-Type: image/jpg'];
+        $fileName = time().'.'.$file->type;
+        
+        return response()->download($archivo, $fileName, $headers);
         if (file_exists($archivo)) {
             
         } else {
